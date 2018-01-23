@@ -27,7 +27,7 @@ public class CalendarStuff {
   /**
    * A listing of the days of the week, assigning numbers; Note that the week arbitrarily starts on Sunday
    */
-   /*public String [] dayNames = String[] {SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY};
+   /*public String [] dayNames = String[] {"SUNDAY";"MONDAY";"TUESDAY";"WEDNESDAY";"THURSDAY";"FRIDAY";"SATURDAY"};
    private static final int SUNDAY    = 0;
    private static final int MONDAY    = SUNDAY    + 1;
    private static final int TUESDAY   = MONDAY    + 1;
@@ -35,7 +35,7 @@ public class CalendarStuff {
    private static final int THURSDAY  = WEDNESDAY + 1;
    private static final int FRIDAY    = THURSDAY  + 1;
    private static final int SATURDAY  = FRIDAY    + 1;
-   */
+*/
   // you can finish the rest on your own
 
   /**
@@ -116,21 +116,29 @@ public class CalendarStuff {
         return 0;
      }
   }
-      /*if (month >= 1 && month <= 12) {
-         if (month == monthNames(JANURARY) || month == monthNames(MARCH) || month == monthNames(MAY) || month == monthNames(JULY) || month == monthNames(AUGUST) || month == monthNames(OCTOBER) || month == monthNames(DECEMBER)) {
-            return 31;
+
+  public static long totalDays(long month, long day, long year) {
+      long totalDaysInYears = 0;
+      long month0 = 0;
+      long day0 = 0;
+      long year0 = 0;
+      if (isValidDate(month, day, year)) {
+         while ((year0 < year) || (month0 < month) || (day0 < day)) {
+            day0++;
+            totalDaysInYears++;
+            while (day0 > daysInMonth(month0, year0)) {
+               day0 = 1;
+               month0++;
+               while (month0 > 12){
+                  year0++;
+                  month0 = 1;
+                  day0 = 1;
+               }
+            }
          }
-         if (month == monthNames(APRIL) || month == monthNames(JUNE) || month == monthNames(SEPTEMBER) || month == monthNames(NOVEMBER)) {
-            return 30;
-         }
-         if (month == monthNames(FEBRUARY) && isLeapYear(year) == true) {
-            return 29;
-         } else {
-            return 28;
-         }
-      } else {
-         return 0;
-      } */
+      }
+      return totalDaysInYears;
+   }
 
   /**
    * A method to determine if two dates are exactly equal
@@ -144,9 +152,12 @@ public class CalendarStuff {
    */
 
    public static boolean dateEquals( long month1, long day1, long year1, long month2, long day2, long year2 ) {
-      return true;  // replace this with the actual code
+      if (totalDays(month1, day1, year1) == totalDays(month2, day2, year2)) { //ensures the dates are equal to each other
+         return true;
+      } else {
+         return false;
+      }
    }
-
   /**
    * A method to compare the ordering of two dates
    * @param    month1 long   containing month number, starting with "1" for "January"
@@ -158,7 +169,13 @@ public class CalendarStuff {
    * @return          int    -1/0/+1 if first date is less than/equal to/greater than second
    */
    public static int compareDate( long month1, long day1, long year1, long month2, long day2, long year2 ) {
-      return 0;  // replace this with the actual code
+      if (dateEquals(month1, day1, year1, month2, day2, year2) == true) {
+         return 0;
+      } else if (totalDays(month1, day1, year1) < totalDays(month2, day2, year2)) {
+         return -1;
+      } else {
+         return 1;
+      }
    }
 
   /**
@@ -173,9 +190,10 @@ public class CalendarStuff {
    public static boolean isValidDate( long month, long day, long year ) {
       if (month <= 12 && month >= 1 && day >= 1 && year >= 0) { //ensures month and year are valid
          if (day <= daysInMonth(month, year)) { //ensures number of days are valid for the month
-            return true
+            return true;
          }
       }
+      //System.out.println(month + " " + day + " " + year + " is an invalid date");
       return false;
    }
 
@@ -186,6 +204,18 @@ public class CalendarStuff {
    */
    public static String toMonthString( int month ) {
       switch( month - 1 ) {
+         case 0: return "January";
+         case 1: return "February";
+         case 2: return "March";
+         case 3: return "April";
+         case 4: return "May";
+         case 5: return "June";
+         case 6: return "July";
+         case 7: return "August";
+         case 8: return "September";
+         case 9: return "October";
+         case 10: return "November";
+         case 11: return "December";
          default: throw new IllegalArgumentException( "Illegal month value given to 'toMonthString()'." );
       }
    }
@@ -197,7 +227,14 @@ public class CalendarStuff {
    */
    public static String toDayOfWeekString( int day ) {
       switch( day - 1 ) {
-         default       : throw new IllegalArgumentException( "Illegal day value given to 'toDayOfWeekString()'." );
+         case 0: return "Sunday";
+         case 1: return "Monday";
+         case 2: return "Tuesday";
+         case 3: return "Wednesday";
+         case 4: return "Thursday";
+         case 5: return "Friday";
+         case 6: return "Saturday";
+         default: throw new IllegalArgumentException( "Illegal day value given to 'toDayOfWeekString()'." );
       }
    }
 
@@ -213,6 +250,11 @@ public class CalendarStuff {
    */
    public static long daysBetween( long month1, long day1, long year1, long month2, long day2, long year2 ) {
       long dayCount = 0;
+      if (compareDate(month1, day1, year1, month2, day2, year2) == 1) {
+         dayCount += (totalDays(month1, day1, year1) - totalDays(month2, day2, year2));
+      } else if (compareDate(month1, day1, year1, month2, day2, year2) == -1) {
+         dayCount += (totalDays(month2, day2, year2) - totalDays(month1, day1, year1));
+      }
       return dayCount;
    }
 
