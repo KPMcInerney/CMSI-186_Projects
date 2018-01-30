@@ -21,6 +21,7 @@
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 import java.util.Set;
 import java.util.LinkedHashSet;
+import java.lang.StringBuilder;
 
 public class StringStuff {
 
@@ -33,7 +34,6 @@ public class StringStuff {
    * @return  boolean which is true if there is a vowel, or false otherwise
    */
    public static String vowels = "aeiouy";
-
    public static boolean containsVowel( String s ) {
       for (int i = 0; i < vowels.length(); i++) {
          for (int j = 0; j < s.length(); j++) {
@@ -53,17 +53,39 @@ public class StringStuff {
    * @param s String containing the data to be checked for &quot;palindrome-ness&quot;
    * @return  boolean which is true if this a palindrome, or false otherwise
    */
-   public static boolean isPalindrome( String s ) {
-      boolean result = false;
+    /*public static boolean isPalindrome( String s ) {
+      boolean result = true;
       for (int i = 0; i < s.length(); i++) {
-         //System.out.println("i = " + i);
-         //System.out.println("length = " + s.length());
+         System.out.println("i = " + i);
+         System.out.println("length = " + s.length());
+         System.out.println("char at i = " + s.charAt(i) + "---char at length - i = " + (s.charAt(s.length() - i)));
          //System.out.println("length - i = " + (s.length() - i));
-         if (s.charAt(i) == s.charAt(s.length() - i)) {
-            result = true;
+         if (s.charAt(i) != s.charAt(s.length() - i)) {
+            System.out.println("inside if loop (false)");
+            result = false;
          }
+         System.out.println("past if loop");
       }
       return result;
+   } */
+
+   public static boolean palindromeResult;
+   public static boolean isPalindrome( String s ) {
+      palindromeResult = true;
+      isPalindromeCalculator(palindromeResult, s, 0, s.length() - 1);
+      return palindromeResult;
+   }
+
+   public static void isPalindromeCalculator(boolean result, String s, int x, int y) {
+      boolean current = result;
+      if (x > y) {
+         palindromeResult = current;
+      } else {
+         if (s.charAt(x) != s.charAt(y)) {
+            current = false;
+         }
+         isPalindromeCalculator(current, s, x + 1, y - 1);
+      }
    }
 
   /**
@@ -74,8 +96,19 @@ public class StringStuff {
    * @param s String containing the data to be parsed for &quot;even&quot; letters
    * @return  String containing the &quot;even&quot; letters from the input
    */
+   public static String alphabet = "abcdefghijklmnopqrstuvwxyz";
    public static String evensOnly( String s ) {
-      return new String( "HJHJHJ" );
+      StringBuilder finalString = new StringBuilder();
+      String result;
+      for (int i = 0; i < s.length(); i++) {
+         for (int j = 1; j < alphabet.length(); j += 2) {
+            if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {
+               finalString.append(s.charAt(i));
+            }
+         }
+      }
+      result = finalString.toString();
+      return result;
    }
 
   /**
