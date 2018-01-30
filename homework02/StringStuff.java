@@ -120,7 +120,17 @@ public class StringStuff {
    * @return  String containing the &quot;odd&quot; letters from the input
    */
    public static String oddsOnly( String s ) {
-      return new String( "IKIKIK" );
+      StringBuilder finalString = new StringBuilder();
+      String result;
+      for (int i = 0; i < s.length(); i++) {
+         for (int j = 0; j < alphabet.length(); j += 2) {
+            if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {
+               finalString.append(s.charAt(i));
+            }
+         }
+      }
+      result = finalString.toString();
+      return result;
    }
 
   /**
