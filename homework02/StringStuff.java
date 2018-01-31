@@ -119,7 +119,6 @@ public class StringStuff {
    */
    public static String oddsOnly( String s ) {
       StringBuilder finalString = new StringBuilder();
-      String result;
       for (int i = 0; i < s.length(); i++) {
          for (int j = 0; j < alphabet.length(); j += 2) {
             if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {
@@ -127,8 +126,7 @@ public class StringStuff {
             }
          }
       }
-      result = finalString.toString();
-      return result;
+      return finalString.toString();
    }
 
   /**
@@ -154,7 +152,7 @@ public class StringStuff {
       StringBuilder builder = new StringBuilder();
       char[] chars = s.toCharArray();
       Set<Character> charSet = new LinkedHashSet<Character>();
-      for (char c: chars) {
+      for (char c : chars) {
          charSet.add(c);
       }
       for (Character character : charSet) {
@@ -170,7 +168,15 @@ public class StringStuff {
    * @return  String containing the &quot;odd&quot; letters from the input without duplicates
    */
    public static String oddsOnlyNoDupes( String s ) {
-      return new String( "IK" );
+      StringBuilder finalString = new StringBuilder();
+      for (int i = 0; i < s.length(); i++) {
+         for (int j = 0; j < alphabet.length(); j += 2) {
+            if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {
+               finalString.append(s.charAt(i));
+            }
+         }
+      }
+      return removeDupes(finalString.toString());
    }
 
   /**
