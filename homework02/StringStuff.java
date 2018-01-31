@@ -99,7 +99,6 @@ public class StringStuff {
    public static String alphabet = "abcdefghijklmnopqrstuvwxyz";
    public static String evensOnly( String s ) {
       StringBuilder finalString = new StringBuilder();
-      String result;
       for (int i = 0; i < s.length(); i++) {
          for (int j = 1; j < alphabet.length(); j += 2) {
             if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {
@@ -107,8 +106,7 @@ public class StringStuff {
             }
          }
       }
-      result = finalString.toString();
-      return result;
+      return finalString.toString();
    }
 
   /**
@@ -141,9 +139,29 @@ public class StringStuff {
    * @return  String containing the &quot;even&quot; letters from the input without duplicates
    */
    public static String evensOnlyNoDupes( String s ) {
-      return new String( "HJ" );
+      StringBuilder finalString = new StringBuilder();
+      for (int i = 0; i < s.length(); i++) {
+         for (int j = 1; j < alphabet.length(); j += 2) {
+            if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {
+               finalString.append(s.charAt(i));
+            }
+         }
+      }
+      return removeDupes(finalString.toString());
    }
 
+   public static String removeDupes( String s ) {
+      StringBuilder builder = new StringBuilder();
+      char[] chars = s.toCharArray();
+      Set<Character> charSet = new LinkedHashSet<Character>();
+      for (char c: chars) {
+         charSet.add(c);
+      }
+      for (Character character : charSet) {
+         builder.append(character);
+      }
+      return builder.toString();
+   }
   /**
    * Method to return the characters in a string that correspond to the &quot;ODD&quot; index
    * numbers of the alphabet, but with no duplicate characters in the resulting string.
