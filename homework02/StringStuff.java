@@ -44,6 +44,16 @@ public class StringStuff {
       }
       return false;
    }
+   /*public static boolean containsVowel ( String s ) {
+      for (char i : vowels) {
+         for (char j : s) {
+            if (vowels.charAt(i) == s.toLowerCase().charAt(j)) {
+               return true;
+            }
+         }
+      }
+      return false;
+   }*/
 
   /**
    * Method to determine if a string is a palindrome.  Does it the brute-force way, checking
@@ -53,23 +63,17 @@ public class StringStuff {
    * @param s String containing the data to be checked for &quot;palindrome-ness&quot;
    * @return  boolean which is true if this a palindrome, or false otherwise
    */
-    /*public static boolean isPalindrome( String s ) {
+    public static boolean isPalindrome( String s ) {
       boolean result = true;
       for (int i = 0; i < s.length(); i++) {
-         System.out.println("i = " + i);
-         System.out.println("length = " + s.length());
-         System.out.println("char at i = " + s.charAt(i) + "---char at length - i = " + (s.charAt(s.length() - i)));
-         //System.out.println("length - i = " + (s.length() - i));
-         if (s.charAt(i) != s.charAt(s.length() - i)) {
-            System.out.println("inside if loop (false)");
+         if (s.charAt(i) != s.charAt((s.length() - 1) - i)) {
             result = false;
          }
-         System.out.println("past if loop");
       }
       return result;
-   } */
+   }
 
-   public static boolean palindromeResult;
+   /*public static boolean palindromeResult;
    public static boolean isPalindrome( String s ) {
       palindromeResult = true;
       isPalindromeCalculator(palindromeResult, s, 0, s.length() - 1);
@@ -86,7 +90,7 @@ public class StringStuff {
          }
          isPalindromeCalculator(current, s, x + 1, y - 1);
       }
-   }
+   }*/
 
   /**
    * Method to return the characters in a string that correspond to the &quot;EVEN&quot; index
