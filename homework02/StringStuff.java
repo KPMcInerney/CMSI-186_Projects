@@ -186,7 +186,11 @@ public class StringStuff {
    * @return  String containing the reverse of the input string
    */
    public static String reverse( String s ) {
-      return new String( "kculc eht tahw" );
+      StringBuilder builder = new StringBuilder();
+      for (int i = 1; i < s.length() + 1; i++) {
+         builder.append(s.charAt(s.length() - i));
+      }
+      return builder.toString();
    }
 
   /**
