@@ -28,15 +28,16 @@ public class StringStuffTester {
    * @return void
    */
    public static void main ( String [] args ) {
-      System.out.println( "\nA TOTAL OF SIXTY-SEVEN TESTS TO CHECK OPERATION OF THE STRINGSTUFF CLASS METHODS");
-      test_containsVowel();      // fourteen tests
-      test_isPalindrome();       // eight tests
-      test_evensOnly();          // fill in how many tests
-      test_oddsOnly();           // fill in how many tests
-      test_evensOnlyNoDupes();   // fill in how many tests
-      test_oddsOnlyNoDupes();    // fill in how many tests
-      test_reverse();            // fill in how many tests
-      test_removeDupes();        // fill in how many tests
+      System.out.println( "\nA TOTAL OF SEVENTY-FIVE TESTS TO CHECK OPERATION OF THE STRINGSTUFF CLASS METHODS");
+      test_containsVowel();          // fourteen tests
+      test_isPalindrome();           // eight tests
+      test_isPalindromeRecursive();  // eight tests
+      test_evensOnly();              // fill in how many tests
+      test_oddsOnly();               // fill in how many tests
+      test_evensOnlyNoDupes();       // fill in how many tests
+      test_oddsOnlyNoDupes();        // fill in how many tests
+      test_reverse();                // fill in how many tests
+      test_removeDupes();            // fill in how many tests
    }
 
   /**
@@ -116,7 +117,7 @@ public class StringStuffTester {
    public static void test_isPalindrome() {
       System.out.println( "\nTEN TESTS FOR isPalindrome():" );
       System.out.print( "   Testing 'a' should return true: " );
-      try { System.out.println( StringStuff.isPalindrome( "a" ) ? "true" : "false" ); }
+      try { System.out.println( StringStuff.isPalindrome( "a") ? "true" : "false" ); }
       catch( Exception e ) { System.out.println ( false ); }
 
       System.out.print( "   Testing 'ab' should return false: " );
@@ -153,6 +154,50 @@ public class StringStuffTester {
 
       System.out.print( "   Testing '1!2@3#4$5%5$4#3@2!1' should return true: " );
       try { System.out.println( StringStuff.isPalindrome( "1!2@3#4$5%5$4#3@2!1" ) ? "true" : "false" ); }
+      catch( Exception e ) { System.out.println ( false ); }
+
+   }
+
+   public static void test_isPalindromeRecursive() {
+      System.out.println( "\nTEN TESTS FOR isPalindromeRecursive():" );
+      System.out.print( "   Testing 'a' should return true: " );
+      try { System.out.println( StringStuff.isPalindromeRecursive( "a") ? "true" : "false" ); }
+      catch( Exception e ) { System.out.println ( false ); }
+
+      System.out.print( "   Testing 'ab' should return false: " );
+      try { System.out.println( StringStuff.isPalindromeRecursive( "ab" ) ? "true" : "false" ); }
+      catch( Exception e ) { System.out.println ( false ); }
+
+      System.out.print( "   Testing 'aba' should return true: " );
+      try { System.out.println( StringStuff.isPalindromeRecursive( "aba" ) ? "true" : "false" ); }
+      catch( Exception e ) { System.out.println ( false ); }
+
+      System.out.print( "   Testing 'amanaplanacanalpanama' should return true: " );
+      try { System.out.println( StringStuff.isPalindromeRecursive( "amanaplanacanalpanama" ) ? "true" : "false" ); }
+      catch( Exception e ) { System.out.println ( false ); }
+
+      System.out.print( "   Testing 'ABBA' should return true: " );
+      try { System.out.println( StringStuff.isPalindromeRecursive( "ABBA" ) ? "true" : "false" ); }
+      catch( Exception e ) { System.out.println ( false ); }
+
+      System.out.print( "   Testing 'RaCeCaR' should return true: " );
+      try { System.out.println( StringStuff.isPalindromeRecursive( "RaCeCaR" ) ? "true" : "false" ); }
+      catch( Exception e ) { System.out.println ( false ); }
+
+      System.out.print( "   Testing 'madamiamadam' should return false: " );
+      try { System.out.println( StringStuff.isPalindromeRecursive( "madamiamadam" ) ? "true" : "false" ); }
+      catch( Exception e ) { System.out.println ( false ); }
+
+      System.out.print( "   Testing 'abcdefghigfedcba' should return false: " );
+      try { System.out.println( StringStuff.isPalindromeRecursive( "abcdefghigfedcba" ) ? "true" : "false" ); }
+      catch( Exception e ) { System.out.println ( false ); }
+
+      System.out.print( "   Testing 'abcdefgh gfedcba' should return false: " );
+      try { System.out.println( StringStuff.isPalindromeRecursive( "abcdefgh gfedcba" ) ? "true" : "false" ); }
+      catch( Exception e ) { System.out.println ( false ); }
+
+      System.out.print( "   Testing '1!2@3#4$5%5$4#3@2!1' should return true: " );
+      try { System.out.println( StringStuff.isPalindromeRecursive( "1!2@3#4$5%5$4#3@2!1" ) ? "true" : "false" ); }
       catch( Exception e ) { System.out.println ( false ); }
 
    }
