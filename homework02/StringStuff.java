@@ -44,16 +44,6 @@ public class StringStuff {
       }
       return false;
    }
-   /*public static boolean containsVowel ( String s ) {
-      for (char i : vowels) {
-         for (char j : s) {
-            if (vowels.charAt(i) == s.toLowerCase().charAt(j)) {
-               return true;
-            }
-         }
-      }
-      return false;
-   }*/
 
   /**
    * Method to determine if a string is a palindrome.  Does it the brute-force way, checking
@@ -73,8 +63,8 @@ public class StringStuff {
       return result;
    }
 
-   /*public static boolean palindromeResult;
-   public static boolean isPalindrome( String s ) {
+   public static boolean palindromeResult;
+   public static boolean isPalindromeRecursive( String s ) {
       palindromeResult = true;
       isPalindromeCalculator(palindromeResult, s, 0, s.length() - 1);
       return palindromeResult;
@@ -90,7 +80,7 @@ public class StringStuff {
          }
          isPalindromeCalculator(current, s, x + 1, y - 1);
       }
-   }*/
+   }
 
   /**
    * Method to return the characters in a string that correspond to the &quot;EVEN&quot; index
