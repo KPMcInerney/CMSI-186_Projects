@@ -33,16 +33,16 @@ public class StringStuff {
    * @param s String containing the data to be checked for &quot;vowel-ness&quot;
    * @return  boolean which is true if there is a vowel, or false otherwise
    */
-   public static String vowels = "aeiouy";
+   public static String vowels = "aeiouy"; //list of vowels for comparison
    public static boolean containsVowel( String s ) {
-      for (int i = 0; i < vowels.length(); i++) {
-         for (int j = 0; j < s.length(); j++) {
-            if (vowels.charAt(i) == s.toLowerCase().charAt(j)) {
-               return true;
+      for (int i = 0; i < vowels.length(); i++) {  //iterates through vowels string chars
+         for (int j = 0; j < s.length(); j++) {  //iterates through s string chars
+            if (vowels.charAt(i) == s.toLowerCase().charAt(j)) {  //compares the char at vowels to the char at s
+               return true;   //returns true if it finds a vowel
             }
          }
       }
-      return false;
+      return false;  //returns false if no vowel is found
    }
 
   /**
@@ -54,31 +54,31 @@ public class StringStuff {
    * @return  boolean which is true if this a palindrome, or false otherwise
    */
     public static boolean isPalindrome( String s ) {
-      boolean result = true;
-      for (int i = 0; i < s.length(); i++) {
-         if (s.charAt(i) != s.charAt((s.length() - 1) - i)) {
-            result = false;
+      boolean result = true;  //creates true boolean
+      for (int i = 0; i < s.length(); i++) { //loops through length of string
+         if (s.charAt(i) != s.charAt((s.length() - 1) - i)) {  //checks if completmentary chars on each sides of string are equal
+            result = false;   //sets boolean to false
          }
       }
-      return result;
+      return result; //returns true/false boolean result
    }
 
    public static boolean palindromeResult;
    public static boolean isPalindromeRecursive( String s ) {
-      palindromeResult = true;
-      isPalindromeCalculator(palindromeResult, s, 0, s.length() - 1);
-      return palindromeResult;
+      palindromeResult = true;   //sets palindromeResult to true for each additional time palindrome is called
+      isPalindromeCalculator(palindromeResult, s, 0, s.length() - 1);   //calls recursive function to change value of palindromeResult
+      return palindromeResult;   //returns new value of palindromeResult
    }
 
    public static void isPalindromeCalculator(boolean result, String s, int x, int y) {
-      boolean current = result;
-      if (x > y) {
-         palindromeResult = current;
+      boolean current = result;  //sets current to true
+      if (x > y) {   //end case for recursive function
+         palindromeResult = current;   //sets palindromeResult to final value of current
       } else {
-         if (s.charAt(x) != s.charAt(y)) {
-            current = false;
+         if (s.charAt(x) != s.charAt(y)) {   //checks if complementary chars on each side of the string are equal
+            current = false;  //sets current to false if the chars are not equal
          }
-         isPalindromeCalculator(current, s, x + 1, y - 1);
+         isPalindromeCalculator(current, s, x + 1, y - 1);  //function calls itself iterating through x and y by 1
       }
    }
 
@@ -90,17 +90,17 @@ public class StringStuff {
    * @param s String containing the data to be parsed for &quot;even&quot; letters
    * @return  String containing the &quot;even&quot; letters from the input
    */
-   public static String alphabet = "abcdefghijklmnopqrstuvwxyz";
+   public static String alphabet = "abcdefghijklmnopqrstuvwxyz";  //listed alphabet for comparison
    public static String evensOnly( String s ) {
-      StringBuilder finalString = new StringBuilder();
-      for (int i = 0; i < s.length(); i++) {
-         for (int j = 1; j < alphabet.length(); j += 2) {
-            if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {
-               finalString.append(s.charAt(i));
+      StringBuilder finalString = new StringBuilder();   //creating a StringBuilder
+      for (int i = 0; i < s.length(); i++) {   //iterates through the length of s
+         for (int j = 1; j < alphabet.length(); j += 2) {   //iterates through the even indexes of the alphabet
+            if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {   //compares the chars at s to the even chars in alphabet
+               finalString.append(s.charAt(i)); //if the char in s is an even index of the alphabet, add it to the StringBuilder
             }
          }
       }
-      return finalString.toString();
+      return finalString.toString();  //changes StringBuilder to an String and returns it
    }
 
   /**
@@ -112,15 +112,15 @@ public class StringStuff {
    * @return  String containing the &quot;odd&quot; letters from the input
    */
    public static String oddsOnly( String s ) {
-      StringBuilder finalString = new StringBuilder();
-      for (int i = 0; i < s.length(); i++) {
-         for (int j = 0; j < alphabet.length(); j += 2) {
-            if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {
-               finalString.append(s.charAt(i));
+      StringBuilder finalString = new StringBuilder();   //creating a StringBuilder
+      for (int i = 0; i < s.length(); i++) { //iterates through the length of s
+         for (int j = 0; j < alphabet.length(); j += 2) {   //iterates through the odd indexes of the alphabet
+            if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {   //compares the chars at s to the odd chars in alphabet
+               finalString.append(s.charAt(i)); //if the char in s is an odd index of the alphabet, add it to the StringBuilder
             }
          }
       }
-      return finalString.toString();
+      return finalString.toString();  //changes StringBuilder to an String and returns it
    }
 
   /**
@@ -131,15 +131,18 @@ public class StringStuff {
    * @return  String containing the &quot;even&quot; letters from the input without duplicates
    */
    public static String evensOnlyNoDupes( String s ) {
-      StringBuilder finalString = new StringBuilder();
-      for (int i = 0; i < s.length(); i++) {
-         for (int j = 1; j < alphabet.length(); j += 2) {
-            if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {
-               finalString.append(s.charAt(i));
-            }
-         }
-      }
-      return removeDupes(finalString.toString());
+      return removeDupes(evensOnly(s));
+   }
+   
+  /**
+   * Method to return the characters in a string that correspond to the &quot;ODD&quot; index
+   * numbers of the alphabet, but with no duplicate characters in the resulting string.
+   *
+   * @param s String containing the data to be parsed for &quot;odd&quot; letters
+   * @return  String containing the &quot;odd&quot; letters from the input without duplicates
+   */
+   public static String oddsOnlyNoDupes( String s ) {
+      return removeDupes(oddsOnly(s));
    }
 
    public static String removeDupes( String s ) {
@@ -153,24 +156,6 @@ public class StringStuff {
          builder.append(character);
       }
       return builder.toString();
-   }
-  /**
-   * Method to return the characters in a string that correspond to the &quot;ODD&quot; index
-   * numbers of the alphabet, but with no duplicate characters in the resulting string.
-   *
-   * @param s String containing the data to be parsed for &quot;odd&quot; letters
-   * @return  String containing the &quot;odd&quot; letters from the input without duplicates
-   */
-   public static String oddsOnlyNoDupes( String s ) {
-      StringBuilder finalString = new StringBuilder();
-      for (int i = 0; i < s.length(); i++) {
-         for (int j = 0; j < alphabet.length(); j += 2) {
-            if (s.toLowerCase().charAt(i) == alphabet.charAt(j)) {
-               finalString.append(s.charAt(i));
-            }
-         }
-      }
-      return removeDupes(finalString.toString());
    }
 
   /**
