@@ -131,9 +131,9 @@ public class StringStuff {
    * @return  String containing the &quot;even&quot; letters from the input without duplicates
    */
    public static String evensOnlyNoDupes( String s ) {
-      return removeDupes(evensOnly(s));
+      return removeDupes(evensOnly(s));  //runs evensOnly() through a removeDupes() function and returns result
    }
-   
+
   /**
    * Method to return the characters in a string that correspond to the &quot;ODD&quot; index
    * numbers of the alphabet, but with no duplicate characters in the resulting string.
@@ -142,20 +142,20 @@ public class StringStuff {
    * @return  String containing the &quot;odd&quot; letters from the input without duplicates
    */
    public static String oddsOnlyNoDupes( String s ) {
-      return removeDupes(oddsOnly(s));
+      return removeDupes(oddsOnly(s));  //runs oddsOnly() through a removeDupes() function and returns result
    }
 
    public static String removeDupes( String s ) {
-      StringBuilder builder = new StringBuilder();
-      char[] chars = s.toCharArray();
-      Set<Character> charSet = new LinkedHashSet<Character>();
-      for (char c : chars) {
-         charSet.add(c);
+      StringBuilder builder = new StringBuilder(); //creates StringBuilder
+      char[] chars = s.toCharArray(); //creates a charArray
+      Set<Character> charSet = new LinkedHashSet<Character>(); //creates a HashSet
+      for (char c : chars) {  //loops through chars array (of s)
+         charSet.add(c);  //because charSet is a HashSet this adds chars without including duplicates
       }
-      for (Character character : charSet) {
-         builder.append(character);
+      for (Character character : charSet) {  //loops through HashSet characters
+         builder.append(character); //adds each object to a StringBuilder
       }
-      return builder.toString();
+      return builder.toString(); //returns chars in builder as a string
    }
 
   /**
@@ -165,11 +165,11 @@ public class StringStuff {
    * @return  String containing the reverse of the input string
    */
    public static String reverse( String s ) {
-      StringBuilder builder = new StringBuilder();
-      for (int i = 1; i < s.length() + 1; i++) {
-         builder.append(s.charAt(s.length() - i));
+      StringBuilder builder = new StringBuilder(); //creates a StringBuilder
+      for (int i = 1; i < s.length() + 1; i++) {   //loops through length of s
+         builder.append(s.charAt(s.length() - i)); //adds chars of s from the end to the beginning
       }
-      return builder.toString();
+      return builder.toString(); //returns the builder chars as a string
    }
 
   /**
