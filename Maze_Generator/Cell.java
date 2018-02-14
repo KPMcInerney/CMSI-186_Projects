@@ -103,8 +103,12 @@ public class Cell {
       return left;
    }
 
-   public boolean getWall(int index){
+   public boolean getWall( int index ){
       return this.walls[index];
+   }
+
+   public void setWall( int index, boolean value){
+      walls[index] = value;
    }
 
    public void setVisited( boolean value ){
@@ -115,12 +119,12 @@ public class Cell {
       return visited;
    }
 
-   public int getI(){
-      return i;
+   public int getX(){
+      return x;
    }
 
-   public int getJ(){
-      return j;
+   public int getY(){
+      return y;
    }
 
    public int getWidth(){

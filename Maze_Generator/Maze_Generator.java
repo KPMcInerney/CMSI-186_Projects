@@ -55,7 +55,7 @@ private boolean allDone = true;
       if (next != null){
          next.setVisited(true);
          //STEP 2
-         //removeWalls(current, next);
+         removeWalls(current, next);
          //STEP 3
 
          //STEP 4
@@ -71,12 +71,25 @@ private boolean allDone = true;
       }
    }
 
-   /*public void removeWalls(Cell a, Cell b){
-      int x = a.getI() - b.getI();
+   public void removeWalls(Cell a, Cell b){
+      int x = a.getX() - b.getX();
       if ( x == 1 ){
-         a.
+         a.setWall(3, false);
+         b.setWall(1, false);
+      } else if ( x == -1 ){
+            a.setWall(1, false);
+            b.setWall(3, false);
       }
-   }*/
+      int y = a.getY() - b.getY();
+      if ( y == 1 ){
+         a.setWall(0, false);
+         b.setWall(2, false);
+      } else if ( y == -1 ){
+         a.setWall(2, false);
+         b.setWall(0, false);
+      }
+
+   }
 
    /*public void runWhile(boolean allDone){
       while (allDone) {
