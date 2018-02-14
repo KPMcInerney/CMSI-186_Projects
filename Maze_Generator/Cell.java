@@ -1,23 +1,84 @@
 import java.awt.Rectangle;
 import java.awt.geom.Line2D;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Cell {
 
-   private int i, j;
+   public int i, j, x, y, top, right, bottom, left, neighborLength,resultIterable;
    private int w = Maze_Generator.getWidth();
    private Boolean[] walls = new Boolean[4];
+   private boolean visited;
+   private Cell[] neighbors = null;
+   private Cell[] result = null;
 
    public Cell( int i, int j) {
-      this.i = i;
-      this.j = j;
+      this.i = i * w;
+      this.j = j * w;
+      this.x = i;
+      this.y = j;
+      visited = false;
       walls[0] = true;
       walls[1] = true;
       walls[2] = true;
       walls[3] = true;
    }
 
-   public Rectangle draw() {
+   public Cell checkNeighbors(){
+      neighbors = new Cell[4];
+      top = index(x, y - 1);
+      right = index(x + 1, y);
+      bottom = index(x, y + 1);
+      left = index(x - 1, y);
+      neighborLength = 0;
+      resultIterable = 0;
+      System.out.println(top + ";" +right +  ";" + bottom +  ";" + left);
+      if ( top > -1 && !Maze_Generator.getSpecificCell(top).getVisited() ) {
+         neighbors[0] = Maze_Generator.getSpecificCell(top);
+         neighborLength += 1;
+         System.out.println("found top" + top);
+      }
+      if ( right > -1 && !Maze_Generator.getSpecificCell(right).getVisited() ) {
+         neighbors[1] = Maze_Generator.getSpecificCell(right);
+         neighborLength += 1;
+         System.out.println("found right" + right);
+      }
+      if ( bottom > -1 && !Maze_Generator.getSpecificCell(bottom).getVisited() ) {
+         neighbors[2] = Maze_Generator.getSpecificCell(bottom);
+         neighborLength += 1;
+         System.out.println("found bottom" + bottom);
+      }
+      if ( left > -1 && !Maze_Generator.getSpecificCell(left).getVisited() ) {
+         neighbors[3] = Maze_Generator.getSpecificCell(left);
+         neighborLength += 1;
+         System.out.println("found left" + left);
+      }
+      result = new Cell[neighborLength];
+      for ( int i = 0; i < neighbors.length; i++ ){
+         if ( neighbors[i] != null ){
+            result[resultIterable] = neighbors[i];
+            resultIterable += 1;
+         }
+      }
+      System.out.println("result length is: " + result.length);
+      if ( result.length > 0){
+         int rand = new Random().nextInt(result.length);
+         System.out.println("rand # is: " + rand);
+         return result[rand];
+      } else {
+         return null;
+      }
+   }
+
+   public int index(int x, int y){
+      System.out.println("x is: " + x + " y is: " + y);
+      if (x < 0 || y < 0 || x > Maze_Generator.getCols() - 1 || y > Maze_Generator.getRows() - 1 ){
+         return -1;
+      }
+      return ( x + y * Maze_Generator.getCols() );
+   }
+
+   public Rectangle rect() {
       Rectangle rect1 = new Rectangle(i, j, w, w);
       return rect1;
    }
@@ -44,6 +105,14 @@ public class Cell {
 
    public boolean getWall(int index){
       return this.walls[index];
+   }
+
+   public void setVisited( boolean value ){
+      visited = value;
+   }
+
+   public boolean getVisited(){
+      return visited;
    }
 
    public int getI(){

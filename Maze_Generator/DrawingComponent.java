@@ -7,13 +7,19 @@ import java.awt.geom.Line2D;
 
 public class DrawingComponent extends JComponent{
 
-
    public void paintComponent (Graphics g){
       Graphics2D g2 = (Graphics2D) g;
+      Color myColour;
       //Rectangle rect1 = new Rectangle(5, 5, 100, 200);
       //g2.draw(rect1);
-
       for (int i = 0; i < Maze_Generator.getGrid().length; i++) {
+         if ( Maze_Generator.getSpecificCell(i).getVisited() ){
+            myColour = new Color(255, 0, 255, 100);
+            g.setColor(myColour);
+            g2.fill( Maze_Generator.getSpecificCell(i).rect() );
+         }
+         myColour = new Color(0, 0, 0);
+         g.setColor(myColour);
          if ( Maze_Generator.getSpecificCell(i).getWall(0) ) {
             g2.draw( Maze_Generator.getSpecificCell(i).top() );
          }
@@ -26,25 +32,8 @@ public class DrawingComponent extends JComponent{
          if ( Maze_Generator.getSpecificCell(i).getWall(3) ) {
             g2.draw( Maze_Generator.getSpecificCell(i).left() );
          }
-
       }
 
    }
 
 }
-
-/*
-for (int i = 0; i < Maze_Generator_2.getGrid().length; i++) {
-   g2.draw( Maze_Generator_2.getSpecificCell(i).top() );
-   g2.draw( Maze_Generator_2.getSpecificCell(i).right() );
-   g2.draw( Maze_Generator_2.getSpecificCell(i).bottom() );
-   g2.draw( Maze_Generator_2.getSpecificCell(i).left() );
-}*/
-
-/*for (int i = 0; i < Maze_Generator_2.getCells().length; i++) {
-   int x = Maze_Generator_2.getSpecificCell(i).getI();
-   int y = Maze_Generator_2.getSpecificCell(i).getJ();
-   int w = Maze_Generator_2.getSpecificCell(i).getWidth();
-   int h = Maze_Generator_2.getSpecificCell(i).getWidth();
-   g2.drawRect( x, y, w, h );
-}*/
