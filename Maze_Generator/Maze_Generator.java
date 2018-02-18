@@ -8,12 +8,12 @@ public class Maze_Generator {
 
 private static int windowWidth = 800;
 private static int windowHeight = 600;
+private static int width = 50;
 private static int cols, rows;
-private static int width = 20;
 private static Cell[] grid = null;
-private Cell current;
-private Cell next;
-private boolean allDone = true;
+private Cell current, next;
+private Stack myStack = null;
+private boolean allVisited;
 
    public static void main (String[] args){
       JFrame window = new JFrame();
@@ -27,7 +27,6 @@ private boolean allDone = true;
       mg.setup();
       mg.runWhile();
       //mg.draw();
-      //mg.runWhile(allDone);
       DrawingComponent DC = new DrawingComponent();
       window.add(DC);
       window.setVisible(true);
@@ -35,40 +34,49 @@ private boolean allDone = true;
    }
 
    public void setup() {
-      System.out.println("inside setup");
       cols = windowWidth / width;
       rows = windowHeight / width;
       grid = new Cell[cols*rows];
+      myStack = new Stack(cols*rows);
       for (int j = 0; j < rows; j++) {
          for (int i = 0; i < cols; i++) {
             grid[i + j * cols] = new Cell(i, j);
          }
       }
-      System.out.println(grid.length);
+      System.out.println( "Maze size: " + windowWidth + " pixels x " + windowHeight + " pixels. " + "Cell width is: " + width);
+      System.out.println( "Total Cells in grid are: " + grid.length);
       current = grid[0];
    }
 
    public void draw(){
       current.setVisited(true);
-      //STEP 1
       next = current.checkNeighbors();
       if (next != null){
          next.setVisited(true);
-         //STEP 2
+         myStack.push(current);
          removeWalls(current, next);
-         //STEP 3
-
-         //STEP 4
          current = next;
+      } else if ( !myStack.isEmpty() ){
+         //System.out.println( "popping " + myStack.peek().getX() );
+         current = myStack.pop();
       }
    }
 
    public void runWhile(){
-      for (Cell c : grid){
+      while ( checkRun() == false ) {
+         draw();
+      }
+      System.out.println("finished maze");
+   }
+
+   public boolean checkRun(){
+      allVisited = true;
+      for ( Cell c : grid ){
          if ( !c.getVisited() ){
-            draw();
+            allVisited = false;
          }
       }
+      return allVisited;
    }
 
    public void removeWalls(Cell a, Cell b){
@@ -90,16 +98,6 @@ private boolean allDone = true;
       }
 
    }
-
-   /*public void runWhile(boolean allDone){
-      while (allDone) {
-         for (Cell c : grid){
-            if ( ){
-
-            }
-         }
-      }
-   }*/
 
    public static int getWidth(){
       return width;
