@@ -51,9 +51,9 @@ public class Maze_Generator { //Maze_Generator class
          }
       }
       System.out.println("\f"); //prints space in terminal
-      System.out.println( "Maze size: " + windowWidth + " pixels x " + windowHeight + " pixels. "); //prints initial width and height given for maze
-      System.out.println( "This gives it " + rows + " rows and " + cols + " columns, each cell having a width of " + width + " pixels."); //prints number of rows and columns in maze and width of each cell
-      System.out.println( "Total Cells in maze are: " + grid.length); //prints total number of cells in the maze
+      System.out.println( "Maze size: " + windowWidth + " pixels x " + windowHeight + " pixels "); //prints initial width and height given for maze
+      System.out.println( "Rows: " + rows + "  Columns: " + cols + "  Cell Width: " + width + " pixels"); //prints number of rows and columns in maze and width of each cell
+      System.out.println( "Total Cells: " + grid.length); //prints total number of cells in the maze
       current = grid[ (new Random().nextInt(cols) * new Random().nextInt(rows)) ]; //sets current cell to random cell in the grid
    }
 
@@ -84,15 +84,15 @@ public class Maze_Generator { //Maze_Generator class
       minutes = (seconds - (seconds % 60)) / 60; //sets duration to the total run minutes without remainder
       if (seconds < 1) { //checks if duration is less than a second
          System.out.println("Finished maze in ." + duration + " seconds" ); //prints time the  program took to run
-         System.out.println("Total Steps were: " + numberOfSteps); //returns total steps the program runs
+         System.out.println("Total steps: " + numberOfSteps); //returns total steps the program runs
          System.out.println("\f"); //prints space into terminal
       } else if ( seconds >= 1 && minutes < 1){ //if duration is greater than a second
          System.out.println("Finished maze in " + seconds + "." + remainder + " seconds" ); //prints time the program took to run
-         System.out.println("Total Steps were: " + numberOfSteps); //returns total steps the program runs
+         System.out.println("Total steps: " + numberOfSteps); //returns total steps the program runs
          System.out.println("\f"); //prints space into the terminal
       } else {
          System.out.println("Finished maze in " + minutes + " minutes and " + (seconds - (minutes * 60)) + "." + remainder + " seconds" ); //prints time the program took to run
-         System.out.println("Total Steps were: " + numberOfSteps); //returns total steps the program runs
+         System.out.println("Total steps: " + numberOfSteps); //returns total steps the program runs
          System.out.println("\f"); //prints space into the terminal
       }
    }
