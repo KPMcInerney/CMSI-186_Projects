@@ -5,30 +5,38 @@ import java.awt.Insets;
 
 public class Maze_Generator {
 
-private static int windowWidth = 800;
-private static int windowHeight = 600;
-private static int width = 20;
+private static int windowWidth;
+private static int windowHeight;
+private static int width;
 private static int cols, rows;
 private static Cell[] grid = null;
 private Cell current, next;
 private Stack myStack = null;
 private boolean allVisited;
+private long startTime, endTime, duration, remainder;
 
-   public static void main (String[] args){
-      JFrame window = new JFrame();
-      window.pack();
-      Insets insets = window.getInsets();
-      window.setSize(new Dimension(windowWidth + insets.left + insets.right, windowHeight+ + insets.top + insets.bottom));
-      window.setTitle("Maze_Generator_2");
-      window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   public static void main (String[] args){ //function should be called
+      try {
+         windowWidth = Integer.parseInt(args[0]);
+         windowHeight = Integer.parseInt(args[1]);
+         width = Integer.parseInt(args[2]);
+         JFrame window = new JFrame();
+         window.pack();
+         Insets insets = window.getInsets();
+         window.setSize(new Dimension(windowWidth + insets.left + insets.right, windowHeight+ + insets.top + insets.bottom));
+         window.setTitle("Maze_Generator_2");
+         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-      Maze_Generator mg = new Maze_Generator();
-      mg.setup();
-      mg.runWhile();
-      DrawingComponent DC = new DrawingComponent();
-      window.add(DC);
-      window.setVisible(true);
-      window.setResizable(false);
+         Maze_Generator mg = new Maze_Generator();
+         mg.setup();
+         mg.runWhile();
+         DrawingComponent DC = new DrawingComponent();
+         window.add(DC);
+         window.setVisible(true);
+         window.setResizable(false);
+      } catch (Exception e) {
+         System.out.println("Invalid Inputs. Try usings integers in the order: WindowWidth WindowHeight CellWidth");
+      }
    }
 
    public void setup() {
@@ -41,7 +49,9 @@ private boolean allVisited;
             grid[i + j * cols] = new Cell(i, j);
          }
       }
-      System.out.println( "Maze size: " + windowWidth + " pixels x " + windowHeight + " pixels. " + "Cell width is: " + width);
+      System.out.println("\f");
+      System.out.println( "Maze size: " + windowWidth + " pixels x " + windowHeight + " pixels. ");
+      System.out.println( "This gives it " + rows + " rows and " + cols + " columns, each cell having a width of " + width + " pixels.");
       System.out.println( "Total Cells in grid are: " + grid.length);
       current = grid[0];
    }
@@ -60,17 +70,27 @@ private boolean allVisited;
    }
 
    public void runWhile(){
-      while ( checkRun() == false ) {
+      startTime = System.nanoTime();
+      while ( checkRun() ) {
          draw();
       }
-      System.out.println("finished maze");
+      endTime = System.nanoTime();
+      duration = (endTime - startTime) / 1000000;
+      if (duration < 1000) {
+         System.out.println("Finished maze in ." + duration + " seconds" );
+      } else {
+         remainder = duration % 1000;
+         duration = (duration - remainder) / 1000;
+         System.out.println("finished maze in " + duration + "." + remainder + " seconds" );
+         System.out.println("\f");
+      }
    }
 
    public boolean checkRun(){
-      allVisited = true;
+      allVisited = false;
       for ( Cell c : grid ){
          if ( !c.getVisited() ){
-            allVisited = false;
+            allVisited = true;
          }
       }
       return allVisited;
