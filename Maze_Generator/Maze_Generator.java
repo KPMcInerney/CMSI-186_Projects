@@ -2,6 +2,7 @@ import javax.swing.JFrame;
 import java.util.Arrays;
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.util.Random;
 
 public class Maze_Generator { //Maze_Generator class
    private static int windowWidth;
@@ -53,7 +54,7 @@ public class Maze_Generator { //Maze_Generator class
       System.out.println( "Maze size: " + windowWidth + " pixels x " + windowHeight + " pixels. "); //prints initial width and height given for maze
       System.out.println( "This gives it " + rows + " rows and " + cols + " columns, each cell having a width of " + width + " pixels."); //prints number of rows and columns in maze and width of each cell
       System.out.println( "Total Cells in maze are: " + grid.length); //prints total number of cells in the maze
-      current = grid[0]; //sets current cell to first cell in the grid (maze)
+      current = grid[ (new Random().nextInt(cols) * new Random().nextInt(rows)) ]; //sets current cell to random cell in the grid
    }
 
    public void draw(){ //method iterating through unvisited cells of the grid

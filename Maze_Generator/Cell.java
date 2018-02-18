@@ -22,6 +22,18 @@ public class Cell { //cell class
       walls[1] = true; //sets the cells right wall boolean to true
       walls[2] = true; //sets the cells bottom wall boolean to true
       walls[3] = true; //sets the cells left wall boolean to true
+      edgeCase(); //removes left wall of first cell (starting cell) and right wall of last cell (ending cell)
+   }
+
+   public void edgeCase(){ //method to remove left wall of first cell (starting cell) and right wall of last cell (ending cell)
+      //System.out.println("running edge case");
+      if ( x == 0 && y == 0 ){ //for first cell
+         walls[3] = false; //remove left wall
+      }
+      //System.out.println( Maze_Generator.getGrid().length );
+      if ( x == (Maze_Generator.getGrid().length-1)/Maze_Generator.getRows() && y == (Maze_Generator.getGrid().length-1)/Maze_Generator.getCols() ){ //for last cell
+         walls[1] = false; //remove right wall
+      }
    }
 
    public Cell checkNeighbors(){ // method to return a random, valid, non-visited cell around this cell
