@@ -2,16 +2,26 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Stack {
+   private int length;
 
     private List<Cell> stack;
 
     public Stack( int SIZE ) {
-        stack = new ArrayList<Cell>(SIZE);
+      length = SIZE;
+      stack = new ArrayList<Cell>(SIZE);
     }
+
+    public int getLength(){
+      return length;
+    }
+
+    public Cell getCell( int i ){
+      return stack.get(i);
+   }
 
     public void push( Cell i ) {
        stack.add(0,i);
-     }
+    }
 
      public Cell pop(){
         if(!stack.isEmpty()) {

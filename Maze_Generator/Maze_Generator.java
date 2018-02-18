@@ -1,5 +1,4 @@
 import javax.swing.JFrame;
-import java.awt.Rectangle;
 import java.util.Arrays;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -8,7 +7,7 @@ public class Maze_Generator {
 
 private static int windowWidth = 800;
 private static int windowHeight = 600;
-private static int width = 50;
+private static int width = 20;
 private static int cols, rows;
 private static Cell[] grid = null;
 private Cell current, next;
@@ -26,7 +25,6 @@ private boolean allVisited;
       Maze_Generator mg = new Maze_Generator();
       mg.setup();
       mg.runWhile();
-      //mg.draw();
       DrawingComponent DC = new DrawingComponent();
       window.add(DC);
       window.setVisible(true);
@@ -57,7 +55,6 @@ private boolean allVisited;
          removeWalls(current, next);
          current = next;
       } else if ( !myStack.isEmpty() ){
-         //System.out.println( "popping " + myStack.peek().getX() );
          current = myStack.pop();
       }
    }
