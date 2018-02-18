@@ -4,16 +4,16 @@ import java.awt.Dimension;
 import java.awt.Insets;
 
 public class Maze_Generator { //Maze_Generator class
-
-private static int windowWidth;
-private static int windowHeight;
-private static int width;
-private static int cols, rows;
-private static Cell[] grid = null;
-private Cell current, next;
-private Stack myStack = null;
-private boolean allNotVisited;
-private long startTime, endTime, duration, remainder;
+   private static int windowWidth;
+   private static int windowHeight;
+   private static int width;
+   private static int cols, rows;
+   private static Cell[] grid = null;
+   private Cell current, next;
+   private Stack myStack = null;
+   private boolean allNotVisited;
+   private long startTime, endTime, duration, remainder, seconds, minutes;
+   private int numberOfSteps = 0;
 
    public static void main (String[] args){ //function should be called with WindowWidth, WindowHeight, CellWidth
       try {
@@ -73,16 +73,25 @@ private long startTime, endTime, duration, remainder;
       startTime = System.nanoTime(); //sets startTime to the time before program runs
       while ( checkRun() ) { //runs draw() method while there are unvisited cells in the grid
          draw();
+         numberOfSteps += 1;
       }
       endTime = System.nanoTime(); //sets endTime to the time after the program runs
       duration = (endTime - startTime) / 1000000; //sets duration to total program run time in miliseconds
-      if (duration < 1000) { //checks if duration is less than a second
-         System.out.println("Finished maze in ." + duration + " seconds" ); //prints seconds program took to run
+      remainder = duration % 1000; //set remainder to miliseconds left after turning converting duration to seconds
+      seconds = (duration - remainder) / 1000; //set seconds to the total run seconds without remainder
+      //remainder2 = seconds % 60;
+      minutes = (seconds - (seconds % 60)) / 60; //sets duration to the total run minutes without remainder
+      if (seconds < 1) { //checks if duration is less than a second
+         System.out.println("Finished maze in ." + duration + " seconds" ); //prints time the  program took to run
+         System.out.println("Total Steps were: " + numberOfSteps); //returns total steps the program runs
          System.out.println("\f"); //prints space into terminal
-      } else { //if duration is greater than a second
-         remainder = duration % 1000; //set remainder to miliseconds left after turning converting duration to seconds
-         duration = (duration - remainder) / 1000; //set duration to the total run seconds without remainder
-         System.out.println("finished maze in " + duration + "." + remainder + " seconds" ); //prints seconds the program took to run
+      } else if ( seconds >= 1 && minutes < 1){ //if duration is greater than a second
+         System.out.println("Finished maze in " + seconds + "." + remainder + " seconds" ); //prints time the program took to run
+         System.out.println("Total Steps were: " + numberOfSteps); //returns total steps the program runs
+         System.out.println("\f"); //prints space into the terminal
+      } else {
+         System.out.println("Finished maze in " + minutes + " minutes and " + (seconds - (minutes * 60)) + "." + remainder + " seconds" ); //prints time the program took to run
+         System.out.println("Total Steps were: " + numberOfSteps); //returns total steps the program runs
          System.out.println("\f"); //prints space into the terminal
       }
    }
