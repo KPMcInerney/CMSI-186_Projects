@@ -42,6 +42,7 @@ public class Die {
    */
    private int sides;
    private int pips;
+   private boolean visited;
    private final int MINIMUM_SIDES = 4;
 
    // public constructor:
@@ -54,13 +55,22 @@ public class Die {
    public Die( int nSides ) {
       setSides(nSides);
       pips = new Random().nextInt(sides) + 1;
+      visited = false;
+   }
+
+   public boolean visited() { //method to get the visited boolean of this die
+      return visited;
+   }
+
+   public void setVisited( boolean value) { //method to set the visited boolean of this die
+      visited = value;
    }
 
   /**
    * Roll THIS die and return the result
    * @return  integer value of the result of the roll, randomly selected
    */
-   public int roll() {
+   public int roll() { //method to randomly roll this die
       pips = new Random().nextInt(sides) + 1;
       return pips;
    }
@@ -72,7 +82,7 @@ public class Die {
    *  "value"?
    * @return the pip count of THIS die instance
    */
-   public int getValue() {
+   public int getValue() { //method to return the pips of this die
       return pips;
    }
 
@@ -81,7 +91,7 @@ public class Die {
    * @return      The new number of sides, in case anyone is looking
    * @throws      IllegalArgumentException
    */
-   public void setSides( int nSides ) {
+   public void setSides( int nSides ) { //method to set the sides of this die
       if (nSides < MINIMUM_SIDES) {
          throw new IllegalArgumentException();
       } else {
@@ -93,15 +103,15 @@ public class Die {
    * Public Instance method that returns a String representation of THIS die instance
    * @return String representation of this Die
    */
-   public String toString() {
-      return ("This die has " + sides + " sides, it's current position is: " + pips);
+   public String toString() { //method to return the string representation of THIS die instance
+      return ("This die has " + sides + " sides, it's current pips are: " + pips);
    }
 
   /**
    * Class-wide method that returns a String representation of THIS die instance
    * @return String representation of this Die
    */
-   public static String toString( Die d ) {
+   public static String toString( Die d ) { //class-wide method to return the string representation of THIS die instance
       return d.toString();
    }
 
@@ -120,7 +130,7 @@ public class Die {
       try { d = new Die( 4 ); }
       catch( IllegalArgumentException iae ) { System.out.println("Too few sides requested to constructor..."); }
       System.out.println( " " );
-      
+
       System.out.println( "roll() test for 4 sided die: ");
       System.out.println( "You rolled a " + d.roll() );
       System.out.println( "You rolled a " + d.roll() );
@@ -136,7 +146,7 @@ public class Die {
       System.out.println( "You rolled a " + d.roll() );
       System.out.println( "You rolled a " + d.roll() );
       System.out.println( "You rolled a " + d.roll() );
-      System.out.println( d.toString() );
+      System.out.println ( toString( d ) );
       System.out.println( " " );
 
       try { d = new Die( 6 ); }
@@ -156,7 +166,7 @@ public class Die {
       System.out.println( "You rolled a " + d.roll() );
       System.out.println( "You rolled a " + d.roll() );
       System.out.println( "You rolled a " + d.roll() );
-      System.out.println( d.toString() );
+      System.out.println ( toString( d ) );
 
    }
 

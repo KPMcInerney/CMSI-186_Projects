@@ -28,14 +28,19 @@
  *  @version 1.0.0  2017-02-09  B.J. Johnson  Initial writing and release
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 import java.lang.StringBuilder;
+import java.util.Set;
+import java.util.LinkedHashSet;
+import java.util.HashSet;
+import java.util.Arrays;
+import java.util.List;
 
 public class DiceSet {
 
   /**
    * private instance data
    */
-   private static int count;
-   private static int sides;
+   private int count;
+   private int sides;
    private Die[] ds = null;
 
    // public constructor:
@@ -130,65 +135,31 @@ public class DiceSet {
   /**
    * @return  tru iff this set is identical to the set passed as an argument
    */
-   /*public boolean isIdentical( DiceSet ds ) {
-      if (this.ds == ds) {
-         return true;
-      } else {
-         return false;
-      }
-   }*/
 
    public boolean isIdentical( DiceSet ds2 ) {
-      System.out.println(count);
-      System.out.println(ds2.getCount());
-      System.out.println(sides);
-      System.out.println(ds2.getSides());
       if (count != ds2.count || sides != ds2.sides) {
          return false;
-      } else {
-         return true;
       }
-   }
-
-   /*
-   else {
-      for (Die d : ds) {
-
+      for (Die d : ds2.ds) {
+         d.setVisited(false);
       }
       for (int i = 0; i < ds.length; i++) {
-         for (int j = 0; j < ds2.length; j++) {
-            if (ds.getIndividual(i) != ds2.getIndividual(j)){
-               return false;
+         for (int j = 0; j < ds2.ds.length; j++) {
+            if (!ds2.ds[j].visited()) {
+               if (ds[i].getValue() == ds2.ds[j].getValue()) {
+                  ds2.ds[j].setVisited(true);
+                  break;
+               }
             }
          }
       }
-   }
-   */
-
-   /*public static String isNot = "[](){} qwertyuiopasdfghjklzxcvbnm";
-   public boolean isIdentical( DiceSet ds2 ) {
-      StringBuilder Builder = new StringBuilder();
-      String dieValue = ds2.toString();
-      System.out.println(dieValue);
-      System.out.println(ds.toString());
-      for (int k = 0; k < dieValue.length(); k++) {
-         for (int j = 0; j < isNot.length(); j++){
-            if ( dieValue.charAt(k) != isNot.charAt(j) ) {
-               Builder.append(dieValue.charAt(k));
-            }
-         }
-      }
-      //System.out.println(Builder.toString());
-      dieValue = Builder.toString();
-      for (Die d : this.ds) {
-         for (int i = 0; i < dieValue.length(); i++) {
-            if ( d.getValue() != dieValue.charAt(i) ) {
-               return false;
-            }
+      for (Die d : ds2.ds) {
+         if ( !d.visited() ){
+            return false;
          }
       }
       return true;
-   }*/
+   }
 
   /**
    * A little test main to check things out
@@ -206,57 +177,53 @@ public class DiceSet {
 
       try { ds1 = new DiceSet( 2, 4 ); }
       catch( IllegalArgumentException iae ) { System.out.println("Too few die or die sides requested to constructor..."); }
-      try { ds2 = new DiceSet( 3, 5 ); }
+      try { ds2 = new DiceSet( 2, 4 ); }
       catch( IllegalArgumentException iae ) { System.out.println("Too few die or die sides requested to constructor..."); }
       System.out.println( "DiceSet 1 has " + ds1.getCount() + " Die, each with " + ds1.getSides() + " sides ");
       System.out.println( "The Die in this set are: " + ds1.toString() );
       System.out.println( "DiceSet 2 has " + ds2.getCount() + " Die, each with " + ds2.getSides() + " sides ");
       System.out.println( "The Die in this set are: " + ds2.toString() );
       System.out.println( "The Set 1 is equal to Set 2: " + ds1.isIdentical( ds2 ) );
-      //ds1.roll();
-      //ds2.roll();
-      //System.out.println( "Rerolling both Sets" );
-      //System.out.println( " " );
+      System.out.println( "The sum of DiceSet 1 is: " + ds1.sum() );
+      ds1.roll();
+      ds2.roll();
+      System.out.println( "Rerolling both Sets" );
+      System.out.println( " " );
 
-      /*System.out.println( "DiceSet 1 has " + count + " Die, each with " + sides + " sides ");
+      System.out.println( "DiceSet 1 has " + ds1.getCount() + " Die, each with " + ds1.getSides() + " sides ");
+      System.out.println( "The Die in this set are: " + toString(ds1) );
+      System.out.println( "DiceSet 2 has " + ds2.getCount() + " Die, each with " + ds2.getSides() + " sides ");
+      System.out.println( "The Die in this set are: " + toString(ds2) );
+      System.out.println( "The Set 1 is equal to Set 2: " + ds1.isIdentical( ds2 ) );
+      System.out.println( "Rerolling die at index 2 in DiceSet 1 to: " + ds1.rollIndividual(2) );
+      System.out.println( "The Die in this set are: " + toString(ds1) );
+      System.out.println( "The Die at index 1 of DiceSet 1 is: " + ds1.getIndividual(1) );
+      System.out.println( "The Set 1 is equal to Set 2: " + ds1.isIdentical( ds2 ) );
+
+      System.out.println( "\f" );
+      try { ds1 = new DiceSet( 2, 4 ); }
+      catch( IllegalArgumentException iae ) { System.out.println("Too few die or die sides requested to constructor..."); }
+      try { ds2 = new DiceSet( 2, 4 ); }
+      catch( IllegalArgumentException iae ) { System.out.println("Too few die or die sides requested to constructor..."); }
+      System.out.println( "DiceSet 1 has " + ds1.getCount() + " Die, each with " + ds1.getSides() + " sides ");
       System.out.println( "The Die in this set are: " + ds1.toString() );
-      System.out.println( "DiceSet 2 has " + count + " Die, each with " + sides + " sides ");
+      System.out.println( "DiceSet 2 has " + ds2.getCount() + " Die, each with " + ds2.getSides() + " sides ");
       System.out.println( "The Die in this set are: " + ds2.toString() );
       System.out.println( "The Set 1 is equal to Set 2: " + ds1.isIdentical( ds2 ) );
       ds1.roll();
       ds2.roll();
       System.out.println( "Rerolling both Sets" );
-      System.out.println( " " );*/
-
-      /*System.out.println( "The D
-      /*System.out.println( "The Die in this set are: " + ds.toString() );
-      System.out.println( "The sum of the Die in this set is: " + ds.sum() );
-      System.out.println( "The value of the Die at " + count/2 + " is: " + ds.getIndividual(count/2) );
-      System.out.println( "Rerolling the Die at index " + count/2 + "\t It is now: " + ds.rollIndividual(count/2) );
-      System.out.println( "The Die in this set are: " + ds.toString() );
-      System.out.println( "The sum of the Die in this set is: " + ds.sum() );
-      ds.roll();
       System.out.println( " " );
-      System.out.println( "Rerolling ");
-      System.out.println( "The Die in this set are: " + ds.toString() );
-      System.out.println( "The sum of the Die in this set is: " + ds.sum() );
-      System.out.println( " " );*/
 
-      /*try { ds = new DiceSet( 13, 37 ); }
-      catch( IllegalArgumentException iae ) { System.out.println("Too few die or die sides requested to constructor..."); }
-      System.out.println( "This DiceSet has " + count + " Die each with " + sides + " sides ");
-      System.out.println( "The Die in this set are: " + ds.toString() );
-      System.out.println( "The sum of the Die in this set is: " + ds.sum() );
-      System.out.println( "The value of the Die at " + count/2 + " is: " + ds.getIndividual(count/2) );
-      System.out.println( "Rerolling the Die at index " + count/2 + "\t It is now: " + ds.rollIndividual(count/2) );
-      System.out.println( "The Die in this set are: " + ds.toString() );
-      System.out.println( "The sum of the Die in this set is: " + ds.sum() );
-      ds.roll();
-      System.out.println( " " );
-      System.out.println( "Rerolling ");
-      System.out.println( "The Die in this set are: " + ds.toString() );
-      System.out.println( "The sum of the Die in this set is: " + ds.sum() );
-      System.out.println( " " );*/
+      System.out.println( "DiceSet 1 has " + ds1.getCount() + " Die, each with " + ds1.getSides() + " sides ");
+      System.out.println( "The Die in this set are: " + toString(ds1) );
+      System.out.println( "DiceSet 2 has " + ds2.getCount() + " Die, each with " + ds2.getSides() + " sides ");
+      System.out.println( "The Die in this set are: " + toString(ds2) );
+      System.out.println( "The Set 1 is equal to Set 2: " + ds1.isIdentical( ds2 ) );
+      System.out.println( "Rerolling die at index 2 in DiceSet 1 to: " + ds1.rollIndividual(2) );
+      System.out.println( "The Die in this set are: " + toString(ds1) );
+      System.out.println( "The Die at index 1 of DiceSet 1 is: " + ds1.getIndividual(1) );
+      System.out.println( "The Set 1 is equal to Set 2: " + ds1.isIdentical( ds2 ) );
 
       // You do this part!
    }
