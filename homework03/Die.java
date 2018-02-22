@@ -52,7 +52,7 @@ public class Die {
    * @throws       IllegalArgumentException
    * Note: parameter must be checked for validity; invalid value must throw "IllegalArgumentException"
    */
-   public Die( int nSides ) {
+   public Die( int nSides ) { //Die constructor
       setSides(nSides);
       pips = new Random().nextInt(sides) + 1;
       visited = false;
@@ -118,7 +118,7 @@ public class Die {
   /**
    * A little test main to check things out
    */
-   public static void main( String[] args ) {
+   public static void main( String[] args ) { //main method to test the other methods
       System.out.println( "Hello world from the Die class..." );
       Die d = null;
       try { d = new Die( 1 ); }
