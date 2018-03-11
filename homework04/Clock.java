@@ -26,22 +26,22 @@ public class Clock {
    private static final double MAXIMUM_DEGREE_VALUE = 360.0;
    private static final double HOUR_HAND_DEGREES_PER_SECOND = 0.00834;
    private static final double MINUTE_HAND_DEGREES_PER_SECOND = 0.1;
-   private double totalSeconds;
-   private double timeSlice;
-   private double angleGoal;
+   private double epsilon = .01;
+   private double totalSeconds, timeSlice, angleGoal;
    private double hourHandAngle, minuteHandAngle, handAngleDifference;
   /**
    *  Constructor goes here
    */
    public Clock( String args[] ) {
+      angleGoal = validateAngleArg( args[0] );
+      totalSeconds = 0;
       if ( args.length == 1 ){
-         angleGoal = validateAngleArg( args[0] );
          timeSlice = validateTimeSliceArg( "" );
-         totalSeconds = 0;
       } else if ( args.length == 2 ){
-         angleGoal = validateAngleArg( args[0] );
          timeSlice = validateTimeSliceArg( args[1] );
-         totalSeconds = 0;
+      } else if ( args.length == 3 ){
+         timeSlice = validateTimeSliceArg( args[1] );
+         epsilon = validateEpsilon( args[2] );
       } else {
          System.exit( 1 );
       }
@@ -56,6 +56,15 @@ public class Clock {
    public double tick() {
       totalSeconds += timeSlice;
       return totalSeconds;
+   }
+
+   public double validateEpsilon( String argValue ) throws NumberFormatException {
+      double given = Double.parseDouble(argValue);
+      if ( given < 1 && given > 0 ){
+         return Double.parseDouble(argValue);
+      } else {
+         return 0.01;
+      }
    }
 
   /**
@@ -84,16 +93,16 @@ public class Clock {
    *  note: remember that the time slice, if it is small will cause the simulation
    *         to take a VERY LONG TIME to complete!
    */
-   public double validateTimeSliceArg( String argValue ) {
+   public double validateTimeSliceArg( String argValue ) throws NumberFormatException {
       if ( argValue.equals(null) || argValue.equals("") ){
          timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
          return timeSlice;
       }
       double given = Double.parseDouble(argValue);
-      if ( given >= 0 && given < 1800 ){
-         return Double.parseDouble(argValue);
+      if ( given > 0 ){
+         return given;
       } else {
-         return INVALID_ARGUMENT_VALUE;
+         throw new NumberFormatException();
       }
    }
 
@@ -102,7 +111,7 @@ public class Clock {
    *  @return double-precision value of the hour hand location
    */
    public double getHourHandAngle() {
-      hourHandAngle = ( totalSeconds * HOUR_HAND_DEGREES_PER_SECOND );
+      hourHandAngle = ( totalSeconds * HOUR_HAND_DEGREES_PER_SECOND ) % 360;
       return hourHandAngle;
    }
 
@@ -111,7 +120,7 @@ public class Clock {
    *  @return double-precision value of the minute hand location
    */
    public double getMinuteHandAngle() {
-      minuteHandAngle = ( totalSeconds * MINUTE_HAND_DEGREES_PER_SECOND );
+      minuteHandAngle = ( totalSeconds * MINUTE_HAND_DEGREES_PER_SECOND ) % 360;
       return minuteHandAngle;
    }
 
@@ -120,8 +129,27 @@ public class Clock {
    *  @return double-precision value of the angle between the two hands
    */
    public double getHandAngle() {
-      handAngleDifference = Math.abs(hourHandAngle - minuteHandAngle);
+      getHourHandAngle();
+      getMinuteHandAngle();
+      handAngleDifference = Math.abs( minuteHandAngle - hourHandAngle );
       return handAngleDifference;
+   }
+
+   public double compareHandAngle() {
+      getHourHandAngle();
+      getMinuteHandAngle();
+      double tempValue = Math.abs( minuteHandAngle - hourHandAngle );
+      double tempValue2 = Math.abs( (360 - minuteHandAngle) + hourHandAngle );
+      double tempValue3 = Math.abs( (360 - hourHandAngle) + minuteHandAngle );
+      if ( angleGoal > (tempValue - (tempValue * epsilon)) && angleGoal < (tempValue + (tempValue * epsilon)) ) {
+         return tempValue;
+      } else if ( angleGoal > (tempValue2 - (tempValue2 * epsilon)) && angleGoal < (tempValue2 + (tempValue2 * epsilon)) ) {
+         return tempValue2;
+      } else if ( angleGoal > (tempValue3 - (tempValue3 * epsilon)) && angleGoal < (tempValue3 + (tempValue3 * epsilon)) ) {
+         return tempValue3;
+      } else {
+         return 0.0;
+      }
    }
 
   /**
@@ -149,7 +177,6 @@ public class Clock {
    *  remember you are trying to BREAK your code, not just prove it works!
    */
    public static void main( String args[] ) {
-
       System.out.println( "\nCLOCK CLASS TESTER PROGRAM\n" +
                           "--------------------------\n" );
       System.out.println( "  Creating a new clock: " );
