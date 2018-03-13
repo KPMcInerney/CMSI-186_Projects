@@ -32,14 +32,14 @@ public class Clock {
   /**
    *  Constructor goes here
    */
-   public Clock( String args[] ) {
+   public Clock( String args[] ) { //initializes variables in contructor
       angleGoal = validateAngleArg( args[0] );
       totalSeconds = 0;
-      if ( args.length == 1 ){
+      if ( args.length == 1 ){ //creates timeSlice if ones not given
          timeSlice = validateTimeSliceArg( "" );
-      } else if ( args.length == 2 ){
+      } else if ( args.length == 2 ){ //sets time slice if one is given
          timeSlice = validateTimeSliceArg( args[1] );
-      } else if ( args.length == 3 ){
+      } else if ( args.length == 3 ){ //sets time slice and epsilon if they are given
          timeSlice = validateTimeSliceArg( args[1] );
          epsilon = validateEpsilon( args[2] );
       } else {
@@ -58,12 +58,13 @@ public class Clock {
       return totalSeconds;
    }
 
+   //method to validate and set the default epsilon value
    public double validateEpsilon( String argValue ) throws NumberFormatException {
       double given = Double.parseDouble(argValue);
-      if ( given < 1 && given > 0 ){
+      if ( given < 1 && given > 0 ){ //if the given value is valid return it
          return Double.parseDouble(argValue);
       } else {
-         return 0.01;
+         return 0.01; //returns default value
       }
    }
 
@@ -75,10 +76,10 @@ public class Clock {
    */
    public double validateAngleArg( String argValue ) throws NumberFormatException {
       double given = Double.parseDouble(argValue);
-      if ( given < MAXIMUM_DEGREE_VALUE && given >= 0 ){
+      if ( given < MAXIMUM_DEGREE_VALUE && given >= 0 ){ //if the given value was valid, return it
          return Double.parseDouble(argValue);
       } else {
-         throw new NumberFormatException();
+         throw new NumberFormatException(); //if given value not valid, throw error
       }
    }
 
@@ -94,15 +95,15 @@ public class Clock {
    *         to take a VERY LONG TIME to complete!
    */
    public double validateTimeSliceArg( String argValue ) throws NumberFormatException {
-      if ( argValue.equals(null) || argValue.equals("") ){
+      if ( argValue.equals(null) || argValue.equals("") ){ //if no value given return the default
          timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
          return timeSlice;
       }
       double given = Double.parseDouble(argValue);
-      if ( given > 0 ){
+      if ( given > 0 ){ //if given value is valid, return it
          return given;
       } else {
-         throw new NumberFormatException();
+         throw new NumberFormatException(); //if invalid value given throw error
       }
    }
 
@@ -111,7 +112,7 @@ public class Clock {
    *  @return double-precision value of the hour hand location
    */
    public double getHourHandAngle() {
-      hourHandAngle = ( totalSeconds * HOUR_HAND_DEGREES_PER_SECOND ) % 360;
+      hourHandAngle = ( totalSeconds * HOUR_HAND_DEGREES_PER_SECOND ) % 360; //sets hour hand angle
       return hourHandAngle;
    }
 
@@ -120,7 +121,7 @@ public class Clock {
    *  @return double-precision value of the minute hand location
    */
    public double getMinuteHandAngle() {
-      minuteHandAngle = ( totalSeconds * MINUTE_HAND_DEGREES_PER_SECOND ) % 360;
+      minuteHandAngle = ( totalSeconds * MINUTE_HAND_DEGREES_PER_SECOND ) % 360; //sets minute hand angle
       return minuteHandAngle;
    }
 
@@ -129,26 +130,24 @@ public class Clock {
    *  @return double-precision value of the angle between the two hands
    */
    public double getHandAngle() {
-      getHourHandAngle();
-      getMinuteHandAngle();
-      handAngleDifference = Math.abs( minuteHandAngle - hourHandAngle );
+      getHourHandAngle(); //sets current hour hand angle
+      getMinuteHandAngle(); //sets current minute hand angle
+      handAngleDifference = Math.abs( minuteHandAngle - hourHandAngle ); //calculates difference between the two hands
       return handAngleDifference;
    }
 
    public double compareHandAngle() {
-      getHourHandAngle();
-      getMinuteHandAngle();
-      double tempValue = Math.abs( minuteHandAngle - hourHandAngle );
+      double tempValue = getHandAngle();
       double tempValue2 = Math.abs( (360 - minuteHandAngle) + hourHandAngle );
       double tempValue3 = Math.abs( (360 - hourHandAngle) + minuteHandAngle );
       if ( angleGoal > (tempValue - (tempValue * epsilon)) && angleGoal < (tempValue + (tempValue * epsilon)) ) {
-         return tempValue;
+         return tempValue; //finds one angle condition
       } else if ( angleGoal > (tempValue2 - (tempValue2 * epsilon)) && angleGoal < (tempValue2 + (tempValue2 * epsilon)) ) {
-         return tempValue2;
+         return tempValue2; //finds another angle condition
       } else if ( angleGoal > (tempValue3 - (tempValue3 * epsilon)) && angleGoal < (tempValue3 + (tempValue3 * epsilon)) ) {
-         return tempValue3;
+         return tempValue3; //finds the last angle condition
       } else {
-         return 0.0;
+         return 0.0; //if none of these are found, return 0
       }
    }
 
@@ -158,7 +157,7 @@ public class Clock {
    *  @return double-precision value the total seconds private variable
    */
    public double getTotalSeconds() {
-      return totalSeconds;
+      return totalSeconds; //returns total seconds
    }
 
   /**
@@ -166,7 +165,7 @@ public class Clock {
    *  @return String value of the current clock
    */
    public String toString() {
-      return "Angle arg: " + angleGoal + " TimeSlice arg: " + timeSlice;
+      return "Angle arg: " + angleGoal + " TimeSlice arg: " + timeSlice; //returns representation of clock as a string
    }
 
   /**
