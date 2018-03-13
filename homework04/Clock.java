@@ -136,7 +136,7 @@ public class Clock {
       return handAngleDifference;
    }
 
-   public double compareHandAngle() {
+   public double compareHandAngle() { //method to compare the hand angles to the angleGoal
       double tempValue = getHandAngle();
       double tempValue2 = Math.abs( (360 - minuteHandAngle) + hourHandAngle );
       double tempValue3 = Math.abs( (360 - hourHandAngle) + minuteHandAngle );
