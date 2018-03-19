@@ -1,0 +1,1089 @@
+.
+.
+successfully compiled
+.
+.
+.
+uh-oh... threw an exception with java Clock no arguments
+   Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 0
+        at Clock.<init>(Clock.java:36)
+        at Clock.main(Clock.java:182)
+
+
+   Hello world, from the ClockSolver program!!
+
+
+   Sorry you must enter either one, two, or three arguments
+   Usage: java ClockSolver <angle> [timeSlice] {epsilon (error boundaries)}
+   Please try again...........
+
+
+   Hello world, from the ClockSolver program!!
+
+
+   Sorry, your arguments are invalid.
+     Please use real numbers [e.g., '90.0' for 90 degrees]
+       [time slice out of range]
+     Please try again.......
+
+uh-oh... threw an exception with 'java ClockSolver 0.0 -1.0
+   Exception in thread "main" java.lang.NumberFormatException: For input string: "-1.0"
+        at java.lang.NumberFormatException.forInputString(Unknown Source)
+        at java.lang.Integer.parseInt(Unknown Source)
+        at java.lang.Integer.parseInt(Unknown Source)
+        at ClockSolver.handleInitialArguments(ClockSolver.java:69)
+        at ClockSolver.main(ClockSolver.java:96)
+
+uh-oh... threw an exception with 'java ClockSolver 90.0 0.0
+   Exception in thread "main" java.lang.NumberFormatException: For input string: "0.0"
+        at java.lang.NumberFormatException.forInputString(Unknown Source)
+        at java.lang.Integer.parseInt(Unknown Source)
+        at java.lang.Integer.parseInt(Unknown Source)
+        at ClockSolver.handleInitialArguments(ClockSolver.java:69)
+        at ClockSolver.main(ClockSolver.java:96)
+
+problems here with not handling non-integer time slice values...
+
+
+   Hello world, from the ClockSolver program!!
+
+
+  Your simulation is running,
+    looking for angles of 90.0 degrees
+    with a time slice of 1801.0 seconds
+
+
+Found target angle of 90.0 at time:   03.0 hours, 00.0 minutes, 06.0 seconds
+
+There were 1 times found for the target angle 90.0
+
+
+   Hello world, from the ClockSolver program!!
+
+
+   Sorry, your arguments are invalid.
+     Please use real numbers [e.g., '90.0' for 90 degrees]
+       [time slice out of range]
+     Please try again.......
+
+
+   Hello world, from the ClockSolver program!!
+
+
+  Your simulation is running,
+    looking for angles of 30.0 degrees
+    with a time slice of 60.0 seconds
+
+
+Found target angle of 30.0 at time:   01.0 hours, 00.0 minutes, 00.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 00.0 minutes, 00.0 seconds
+
+There were 2 times found for the target angle 30.0
+
+
+   Hello world, from the ClockSolver program!!
+
+
+  Your simulation is running,
+    looking for angles of 30.0 degrees
+    with a time slice of 10.0 seconds
+
+
+Found target angle of 30.0 at time:   00.0 hours, 05.0 minutes, 30.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 00.0 minutes, 00.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 05.0 minutes, 30.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 16.0 minutes, 20.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 21.0 minutes, 50.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 16.0 minutes, 20.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 27.0 minutes, 20.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 21.0 minutes, 50.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 27.0 minutes, 20.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 38.0 minutes, 10.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 43.0 minutes, 40.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 38.0 minutes, 10.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 49.0 minutes, 10.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 43.0 minutes, 40.0 seconds
+Found target angle of 30.0 at time:   10.0 hours, 49.0 minutes, 10.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 00.0 minutes, 00.0 seconds
+
+There were 16 times found for the target angle 30.0
+
+
+   Hello world, from the ClockSolver program!!
+
+
+  Your simulation is running,
+    looking for angles of 30.0 degrees
+    with a time slice of 1.0 seconds
+
+
+Found target angle of 30.0 at time:   00.0 hours, 05.0 minutes, 25.0 seconds
+Found target angle of 30.0 at time:   00.0 hours, 05.0 minutes, 26.0 seconds
+Found target angle of 30.0 at time:   00.0 hours, 05.0 minutes, 27.0 seconds
+Found target angle of 30.0 at time:   00.0 hours, 05.0 minutes, 28.0 seconds
+Found target angle of 30.0 at time:   00.0 hours, 05.0 minutes, 29.0 seconds
+Found target angle of 30.0 at time:   00.0 hours, 05.0 minutes, 30.0 seconds
+Found target angle of 30.0 at time:   00.0 hours, 59.0 minutes, 57.0 seconds
+Found target angle of 30.0 at time:   00.0 hours, 59.0 minutes, 58.0 seconds
+Found target angle of 30.0 at time:   00.0 hours, 59.0 minutes, 59.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 00.0 minutes, 00.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 00.0 minutes, 01.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 00.0 minutes, 02.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 00.0 minutes, 03.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 10.0 minutes, 52.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 10.0 minutes, 53.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 10.0 minutes, 54.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 10.0 minutes, 55.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 10.0 minutes, 56.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 10.0 minutes, 57.0 seconds
+Found target angle of 30.0 at time:   01.0 hours, 10.0 minutes, 58.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 05.0 minutes, 25.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 05.0 minutes, 26.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 05.0 minutes, 27.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 05.0 minutes, 28.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 05.0 minutes, 29.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 05.0 minutes, 30.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 05.0 minutes, 31.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 16.0 minutes, 20.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 16.0 minutes, 21.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 16.0 minutes, 22.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 16.0 minutes, 23.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 16.0 minutes, 24.0 seconds
+Found target angle of 30.0 at time:   02.0 hours, 16.0 minutes, 25.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 10.0 minutes, 53.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 10.0 minutes, 54.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 10.0 minutes, 55.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 10.0 minutes, 56.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 10.0 minutes, 57.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 10.0 minutes, 58.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 21.0 minutes, 47.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 21.0 minutes, 48.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 21.0 minutes, 49.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 21.0 minutes, 50.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 21.0 minutes, 51.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 21.0 minutes, 52.0 seconds
+Found target angle of 30.0 at time:   03.0 hours, 21.0 minutes, 53.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 16.0 minutes, 20.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 16.0 minutes, 21.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 16.0 minutes, 22.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 16.0 minutes, 23.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 16.0 minutes, 24.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 16.0 minutes, 25.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 16.0 minutes, 26.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 27.0 minutes, 15.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 27.0 minutes, 16.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 27.0 minutes, 17.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 27.0 minutes, 18.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 27.0 minutes, 19.0 seconds
+Found target angle of 30.0 at time:   04.0 hours, 27.0 minutes, 20.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 21.0 minutes, 48.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 21.0 minutes, 49.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 21.0 minutes, 50.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 21.0 minutes, 51.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 21.0 minutes, 52.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 21.0 minutes, 53.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 32.0 minutes, 42.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 32.0 minutes, 43.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 32.0 minutes, 44.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 32.0 minutes, 45.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 32.0 minutes, 46.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 32.0 minutes, 47.0 seconds
+Found target angle of 30.0 at time:   05.0 hours, 32.0 minutes, 48.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 27.0 minutes, 15.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 27.0 minutes, 16.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 27.0 minutes, 17.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 27.0 minutes, 18.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 27.0 minutes, 19.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 27.0 minutes, 20.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 27.0 minutes, 21.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 38.0 minutes, 10.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 38.0 minutes, 11.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 38.0 minutes, 12.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 38.0 minutes, 13.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 38.0 minutes, 14.0 seconds
+Found target angle of 30.0 at time:   06.0 hours, 38.0 minutes, 15.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 32.0 minutes, 43.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 32.0 minutes, 44.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 32.0 minutes, 45.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 32.0 minutes, 46.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 32.0 minutes, 47.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 32.0 minutes, 48.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 43.0 minutes, 37.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 43.0 minutes, 38.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 43.0 minutes, 39.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 43.0 minutes, 40.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 43.0 minutes, 41.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 43.0 minutes, 42.0 seconds
+Found target angle of 30.0 at time:   07.0 hours, 43.0 minutes, 43.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 38.0 minutes, 10.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 38.0 minutes, 11.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 38.0 minutes, 12.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 38.0 minutes, 13.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 38.0 minutes, 14.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 38.0 minutes, 15.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 38.0 minutes, 16.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 49.0 minutes, 05.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 49.0 minutes, 06.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 49.0 minutes, 07.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 49.0 minutes, 08.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 49.0 minutes, 09.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 49.0 minutes, 10.0 seconds
+Found target angle of 30.0 at time:   08.0 hours, 49.0 minutes, 11.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 43.0 minutes, 38.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 43.0 minutes, 39.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 43.0 minutes, 40.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 43.0 minutes, 41.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 43.0 minutes, 42.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 43.0 minutes, 43.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 54.0 minutes, 33.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 54.0 minutes, 34.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 54.0 minutes, 35.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 54.0 minutes, 36.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 54.0 minutes, 37.0 seconds
+Found target angle of 30.0 at time:   09.0 hours, 54.0 minutes, 38.0 seconds
+Found target angle of 30.0 at time:   10.0 hours, 49.0 minutes, 05.0 seconds
+Found target angle of 30.0 at time:   10.0 hours, 49.0 minutes, 06.0 seconds
+Found target angle of 30.0 at time:   10.0 hours, 49.0 minutes, 07.0 seconds
+Found target angle of 30.0 at time:   10.0 hours, 49.0 minutes, 08.0 seconds
+Found target angle of 30.0 at time:   10.0 hours, 49.0 minutes, 09.0 seconds
+Found target angle of 30.0 at time:   10.0 hours, 49.0 minutes, 10.0 seconds
+Found target angle of 30.0 at time:   10.0 hours, 49.0 minutes, 11.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 00.0 minutes, 00.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 00.0 minutes, 01.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 00.0 minutes, 02.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 00.0 minutes, 03.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 00.0 minutes, 04.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 00.0 minutes, 05.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 00.0 minutes, 06.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 54.0 minutes, 33.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 54.0 minutes, 34.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 54.0 minutes, 35.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 54.0 minutes, 36.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 54.0 minutes, 37.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 54.0 minutes, 38.0 seconds
+Found target angle of 30.0 at time:   11.0 hours, 54.0 minutes, 39.0 seconds
+
+There were 145 times found for the target angle 30.0
+
+
+   Hello world, from the ClockSolver program!!
+
+
+  Your simulation is running,
+    looking for angles of 75.23 degrees
+    with a time slice of 60.0 seconds
+
+
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 00.0 seconds
+Found target angle of 75.23 at time:   05.0 hours, 41.0 minutes, 00.0 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 00.0 seconds
+Found target angle of 75.23 at time:   07.0 hours, 52.0 minutes, 00.0 seconds
+Found target angle of 75.23 at time:   08.0 hours, 30.0 minutes, 00.0 seconds
+Found target angle of 75.23 at time:   10.0 hours, 41.0 minutes, 00.0 seconds
+
+There were 6 times found for the target angle 75.23
+
+
+   Hello world, from the ClockSolver program!!
+
+
+  Your simulation is running,
+    looking for angles of 75.23 degrees
+    with a time slice of 7.0 seconds
+
+
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 39.0 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 46.0 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 41.0 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 48.0 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 06.0 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 13.0 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 08.0 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 15.0 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 22.0 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 33.0 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 40.0 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 35.0 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 42.0 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 49.0 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 00.0 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 07.0 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 02.0 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 09.0 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 16.0 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 27.0 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 34.0 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 29.0 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 36.0 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 43.0 seconds
+Found target angle of 75.23 at time:   05.0 hours, 40.0 minutes, 54.0 seconds
+Found target angle of 75.23 at time:   05.0 hours, 41.0 minutes, 01.0 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 03.0 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 10.0 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 21.0 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 28.0 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 30.0 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 37.0 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 48.0 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 55.0 seconds
+Found target angle of 75.23 at time:   08.0 hours, 29.0 minutes, 57.0 seconds
+Found target angle of 75.23 at time:   08.0 hours, 30.0 minutes, 04.0 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 15.0 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 22.0 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 29.0 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 24.0 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 31.0 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 42.0 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 49.0 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 56.0 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 51.0 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 58.0 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 09.0 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 16.0 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 23.0 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 18.0 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 25.0 seconds
+
+There were 51 times found for the target angle 75.23
+
+
+   Hello world, from the ClockSolver program!!
+
+
+  Your simulation is running,
+    looking for angles of 75.23 degrees
+    with a time slice of 1.3 seconds
+
+
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 33.8 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 35.1 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 36.4 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 37.7 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 39.0 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 40.3 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 41.6 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 42.9 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 44.2 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 45.5 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 46.8 seconds
+Found target angle of 75.23 at time:   00.0 hours, 13.0 minutes, 48.1 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 39.2 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 40.5 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 41.8 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 43.1 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 44.4 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 45.7 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 47.0 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 48.3 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 49.6 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 50.9 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 52.2 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 53.5 seconds
+Found target angle of 75.23 at time:   00.0 hours, 51.0 minutes, 54.8 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 01.1 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 02.4 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 03.7 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 05.0 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 06.3 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 07.6 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 08.9 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 10.2 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 11.5 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 12.8 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 14.1 seconds
+Found target angle of 75.23 at time:   01.0 hours, 19.0 minutes, 15.4 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 06.5 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 07.8 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 09.1 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 10.4 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 11.7 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 13.0 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 14.3 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 15.6 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 16.9 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 18.2 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 19.5 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 20.8 seconds
+Found target angle of 75.23 at time:   01.0 hours, 57.0 minutes, 22.1 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 28.4 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 29.7 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 31.0 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 32.3 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 33.6 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 34.9 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 36.2 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 37.5 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 38.8 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 40.1 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 41.4 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 42.7 seconds
+Found target angle of 75.23 at time:   02.0 hours, 24.0 minutes, 44.0 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 33.8 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 35.1 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 36.4 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 37.7 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 39.0 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 40.3 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 41.6 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 42.9 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 44.2 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 45.5 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 46.8 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 48.1 seconds
+Found target angle of 75.23 at time:   03.0 hours, 02.0 minutes, 49.4 seconds
+Found target angle of 75.23 at time:   03.0 hours, 29.0 minutes, 55.7 seconds
+Found target angle of 75.23 at time:   03.0 hours, 29.0 minutes, 57.0 seconds
+Found target angle of 75.23 at time:   03.0 hours, 29.0 minutes, 58.3 seconds
+Found target angle of 75.23 at time:   03.0 hours, 29.0 minutes, 59.6 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 00.9 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 02.2 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 03.5 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 04.8 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 06.1 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 07.4 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 08.7 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 10.0 seconds
+Found target angle of 75.23 at time:   03.0 hours, 30.0 minutes, 11.3 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 02.4 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 03.7 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 05.0 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 06.3 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 07.6 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 08.9 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 10.2 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 11.5 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 12.8 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 14.1 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 15.4 seconds
+Found target angle of 75.23 at time:   04.0 hours, 08.0 minutes, 16.7 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 23.0 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 24.3 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 25.6 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 26.9 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 28.2 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 29.5 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 30.8 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 32.1 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 33.4 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 34.7 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 36.0 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 37.3 seconds
+Found target angle of 75.23 at time:   04.0 hours, 35.0 minutes, 38.6 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 29.7 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 31.0 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 32.3 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 33.6 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 34.9 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 36.2 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 37.5 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 38.8 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 40.1 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 41.4 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 42.7 seconds
+Found target angle of 75.23 at time:   05.0 hours, 13.0 minutes, 44.0 seconds
+Found target angle of 75.23 at time:   05.0 hours, 40.0 minutes, 51.6 seconds
+Found target angle of 75.23 at time:   05.0 hours, 40.0 minutes, 52.9 seconds
+Found target angle of 75.23 at time:   05.0 hours, 40.0 minutes, 54.2 seconds
+Found target angle of 75.23 at time:   05.0 hours, 40.0 minutes, 55.5 seconds
+Found target angle of 75.23 at time:   05.0 hours, 40.0 minutes, 56.8 seconds
+Found target angle of 75.23 at time:   05.0 hours, 40.0 minutes, 58.1 seconds
+Found target angle of 75.23 at time:   05.0 hours, 40.0 minutes, 59.4 seconds
+Found target angle of 75.23 at time:   05.0 hours, 41.0 minutes, 00.7 seconds
+Found target angle of 75.23 at time:   05.0 hours, 41.0 minutes, 02.0 seconds
+Found target angle of 75.23 at time:   05.0 hours, 41.0 minutes, 03.3 seconds
+Found target angle of 75.23 at time:   05.0 hours, 41.0 minutes, 04.6 seconds
+Found target angle of 75.23 at time:   05.0 hours, 41.0 minutes, 05.9 seconds
+Found target angle of 75.23 at time:   06.0 hours, 18.0 minutes, 57.0 seconds
+Found target angle of 75.23 at time:   06.0 hours, 18.0 minutes, 58.3 seconds
+Found target angle of 75.23 at time:   06.0 hours, 18.0 minutes, 59.6 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 00.9 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 02.2 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 03.5 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 04.8 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 06.1 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 07.4 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 08.7 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 10.0 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 11.3 seconds
+Found target angle of 75.23 at time:   06.0 hours, 19.0 minutes, 12.6 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 18.9 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 20.2 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 21.5 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 22.8 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 24.1 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 25.4 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 26.7 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 28.0 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 29.3 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 30.6 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 31.9 seconds
+Found target angle of 75.23 at time:   06.0 hours, 46.0 minutes, 33.2 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 24.3 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 25.6 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 26.9 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 28.2 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 29.5 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 30.8 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 32.1 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 33.4 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 34.7 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 36.0 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 37.3 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 38.6 seconds
+Found target angle of 75.23 at time:   07.0 hours, 24.0 minutes, 39.9 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 46.2 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 47.5 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 48.8 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 50.1 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 51.4 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 52.7 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 54.0 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 55.3 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 56.6 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 57.9 seconds
+Found target angle of 75.23 at time:   07.0 hours, 51.0 minutes, 59.2 seconds
+Found target angle of 75.23 at time:   07.0 hours, 52.0 minutes, 00.5 seconds
+Found target angle of 75.23 at time:   07.0 hours, 52.0 minutes, 01.8 seconds
+Found target angle of 75.23 at time:   08.0 hours, 29.0 minutes, 51.6 seconds
+Found target angle of 75.23 at time:   08.0 hours, 29.0 minutes, 52.9 seconds
+Found target angle of 75.23 at time:   08.0 hours, 29.0 minutes, 54.2 seconds
+Found target angle of 75.23 at time:   08.0 hours, 29.0 minutes, 55.5 seconds
+Found target angle of 75.23 at time:   08.0 hours, 29.0 minutes, 56.8 seconds
+Found target angle of 75.23 at time:   08.0 hours, 29.0 minutes, 58.1 seconds
+Found target angle of 75.23 at time:   08.0 hours, 29.0 minutes, 59.4 seconds
+Found target angle of 75.23 at time:   08.0 hours, 30.0 minutes, 00.7 seconds
+Found target angle of 75.23 at time:   08.0 hours, 30.0 minutes, 02.0 seconds
+Found target angle of 75.23 at time:   08.0 hours, 30.0 minutes, 03.3 seconds
+Found target angle of 75.23 at time:   08.0 hours, 30.0 minutes, 04.6 seconds
+Found target angle of 75.23 at time:   08.0 hours, 30.0 minutes, 05.9 seconds
+Found target angle of 75.23 at time:   08.0 hours, 30.0 minutes, 07.2 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 13.5 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 14.8 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 16.1 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 17.4 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 18.7 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 20.0 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 21.3 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 22.6 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 23.9 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 25.2 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 26.5 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 27.8 seconds
+Found target angle of 75.23 at time:   08.0 hours, 57.0 minutes, 29.1 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 20.2 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 21.5 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 22.8 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 24.1 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 25.4 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 26.7 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 28.0 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 29.3 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 30.6 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 31.9 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 33.2 seconds
+Found target angle of 75.23 at time:   09.0 hours, 35.0 minutes, 34.5 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 40.8 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 42.1 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 43.4 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 44.7 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 46.0 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 47.3 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 48.6 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 49.9 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 51.2 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 52.5 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 53.8 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 55.1 seconds
+Found target angle of 75.23 at time:   10.0 hours, 02.0 minutes, 56.4 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 47.5 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 48.8 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 50.1 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 51.4 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 52.7 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 54.0 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 55.3 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 56.6 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 57.9 seconds
+Found target angle of 75.23 at time:   10.0 hours, 40.0 minutes, 59.2 seconds
+Found target angle of 75.23 at time:   10.0 hours, 41.0 minutes, 00.5 seconds
+Found target angle of 75.23 at time:   10.0 hours, 41.0 minutes, 01.8 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 09.4 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 10.7 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 12.0 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 13.3 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 14.6 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 15.9 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 17.2 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 18.5 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 19.8 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 21.1 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 22.4 seconds
+Found target angle of 75.23 at time:   11.0 hours, 08.0 minutes, 23.7 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 14.8 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 16.1 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 17.4 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 18.7 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 20.0 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 21.3 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 22.6 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 23.9 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 25.2 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 26.5 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 27.8 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 29.1 seconds
+Found target angle of 75.23 at time:   11.0 hours, 46.0 minutes, 30.4 seconds
+
+There were 277 times found for the target angle 75.23
+
+
+   Hello world, from the ClockSolver program!!
+
+
+  Your simulation is running,
+    looking for angles of 90.0 degrees
+    with a time slice of 2.5 seconds
+
+
+Found target angle of 90.0 at time:   00.0 hours, 16.0 minutes, 12.5 seconds
+Found target angle of 90.0 at time:   00.0 hours, 16.0 minutes, 15.0 seconds
+Found target angle of 90.0 at time:   00.0 hours, 16.0 minutes, 17.5 seconds
+Found target angle of 90.0 at time:   00.0 hours, 16.0 minutes, 20.0 seconds
+Found target angle of 90.0 at time:   00.0 hours, 16.0 minutes, 22.5 seconds
+Found target angle of 90.0 at time:   00.0 hours, 16.0 minutes, 25.0 seconds
+Found target angle of 90.0 at time:   00.0 hours, 16.0 minutes, 27.5 seconds
+Found target angle of 90.0 at time:   00.0 hours, 16.0 minutes, 30.0 seconds
+Found target angle of 90.0 at time:   00.0 hours, 48.0 minutes, 57.5 seconds
+Found target angle of 90.0 at time:   00.0 hours, 49.0 minutes, 00.0 seconds
+Found target angle of 90.0 at time:   00.0 hours, 49.0 minutes, 02.5 seconds
+Found target angle of 90.0 at time:   00.0 hours, 49.0 minutes, 05.0 seconds
+Found target angle of 90.0 at time:   00.0 hours, 49.0 minutes, 07.5 seconds
+Found target angle of 90.0 at time:   00.0 hours, 49.0 minutes, 10.0 seconds
+Found target angle of 90.0 at time:   00.0 hours, 49.0 minutes, 12.5 seconds
+Found target angle of 90.0 at time:   00.0 hours, 49.0 minutes, 15.0 seconds
+Found target angle of 90.0 at time:   01.0 hours, 21.0 minutes, 40.0 seconds
+Found target angle of 90.0 at time:   01.0 hours, 21.0 minutes, 42.5 seconds
+Found target angle of 90.0 at time:   01.0 hours, 21.0 minutes, 45.0 seconds
+Found target angle of 90.0 at time:   01.0 hours, 21.0 minutes, 47.5 seconds
+Found target angle of 90.0 at time:   01.0 hours, 21.0 minutes, 50.0 seconds
+Found target angle of 90.0 at time:   01.0 hours, 21.0 minutes, 52.5 seconds
+Found target angle of 90.0 at time:   01.0 hours, 21.0 minutes, 55.0 seconds
+Found target angle of 90.0 at time:   01.0 hours, 21.0 minutes, 57.5 seconds
+Found target angle of 90.0 at time:   01.0 hours, 54.0 minutes, 25.0 seconds
+Found target angle of 90.0 at time:   01.0 hours, 54.0 minutes, 27.5 seconds
+Found target angle of 90.0 at time:   01.0 hours, 54.0 minutes, 30.0 seconds
+Found target angle of 90.0 at time:   01.0 hours, 54.0 minutes, 32.5 seconds
+Found target angle of 90.0 at time:   01.0 hours, 54.0 minutes, 35.0 seconds
+Found target angle of 90.0 at time:   01.0 hours, 54.0 minutes, 37.5 seconds
+Found target angle of 90.0 at time:   01.0 hours, 54.0 minutes, 40.0 seconds
+Found target angle of 90.0 at time:   01.0 hours, 54.0 minutes, 42.5 seconds
+Found target angle of 90.0 at time:   02.0 hours, 27.0 minutes, 07.5 seconds
+Found target angle of 90.0 at time:   02.0 hours, 27.0 minutes, 10.0 seconds
+Found target angle of 90.0 at time:   02.0 hours, 27.0 minutes, 12.5 seconds
+Found target angle of 90.0 at time:   02.0 hours, 27.0 minutes, 15.0 seconds
+Found target angle of 90.0 at time:   02.0 hours, 27.0 minutes, 17.5 seconds
+Found target angle of 90.0 at time:   02.0 hours, 27.0 minutes, 20.0 seconds
+Found target angle of 90.0 at time:   02.0 hours, 27.0 minutes, 22.5 seconds
+Found target angle of 90.0 at time:   02.0 hours, 27.0 minutes, 25.0 seconds
+Found target angle of 90.0 at time:   02.0 hours, 59.0 minutes, 52.5 seconds
+Found target angle of 90.0 at time:   02.0 hours, 59.0 minutes, 55.0 seconds
+Found target angle of 90.0 at time:   02.0 hours, 59.0 minutes, 57.5 seconds
+Found target angle of 90.0 at time:   03.0 hours, 00.0 minutes, 00.0 seconds
+Found target angle of 90.0 at time:   03.0 hours, 00.0 minutes, 02.5 seconds
+Found target angle of 90.0 at time:   03.0 hours, 00.0 minutes, 05.0 seconds
+Found target angle of 90.0 at time:   03.0 hours, 00.0 minutes, 07.5 seconds
+Found target angle of 90.0 at time:   03.0 hours, 00.0 minutes, 10.0 seconds
+Found target angle of 90.0 at time:   03.0 hours, 32.0 minutes, 35.0 seconds
+Found target angle of 90.0 at time:   03.0 hours, 32.0 minutes, 37.5 seconds
+Found target angle of 90.0 at time:   03.0 hours, 32.0 minutes, 40.0 seconds
+Found target angle of 90.0 at time:   03.0 hours, 32.0 minutes, 42.5 seconds
+Found target angle of 90.0 at time:   03.0 hours, 32.0 minutes, 45.0 seconds
+Found target angle of 90.0 at time:   03.0 hours, 32.0 minutes, 47.5 seconds
+Found target angle of 90.0 at time:   03.0 hours, 32.0 minutes, 50.0 seconds
+Found target angle of 90.0 at time:   03.0 hours, 32.0 minutes, 52.5 seconds
+Found target angle of 90.0 at time:   04.0 hours, 05.0 minutes, 20.0 seconds
+Found target angle of 90.0 at time:   04.0 hours, 05.0 minutes, 22.5 seconds
+Found target angle of 90.0 at time:   04.0 hours, 05.0 minutes, 25.0 seconds
+Found target angle of 90.0 at time:   04.0 hours, 05.0 minutes, 27.5 seconds
+Found target angle of 90.0 at time:   04.0 hours, 05.0 minutes, 30.0 seconds
+Found target angle of 90.0 at time:   04.0 hours, 05.0 minutes, 32.5 seconds
+Found target angle of 90.0 at time:   04.0 hours, 05.0 minutes, 35.0 seconds
+Found target angle of 90.0 at time:   04.0 hours, 05.0 minutes, 37.5 seconds
+Found target angle of 90.0 at time:   04.0 hours, 38.0 minutes, 02.5 seconds
+Found target angle of 90.0 at time:   04.0 hours, 38.0 minutes, 05.0 seconds
+Found target angle of 90.0 at time:   04.0 hours, 38.0 minutes, 07.5 seconds
+Found target angle of 90.0 at time:   04.0 hours, 38.0 minutes, 10.0 seconds
+Found target angle of 90.0 at time:   04.0 hours, 38.0 minutes, 12.5 seconds
+Found target angle of 90.0 at time:   04.0 hours, 38.0 minutes, 15.0 seconds
+Found target angle of 90.0 at time:   04.0 hours, 38.0 minutes, 17.5 seconds
+Found target angle of 90.0 at time:   04.0 hours, 38.0 minutes, 20.0 seconds
+Found target angle of 90.0 at time:   05.0 hours, 10.0 minutes, 47.5 seconds
+Found target angle of 90.0 at time:   05.0 hours, 10.0 minutes, 50.0 seconds
+Found target angle of 90.0 at time:   05.0 hours, 10.0 minutes, 52.5 seconds
+Found target angle of 90.0 at time:   05.0 hours, 10.0 minutes, 55.0 seconds
+Found target angle of 90.0 at time:   05.0 hours, 10.0 minutes, 57.5 seconds
+Found target angle of 90.0 at time:   05.0 hours, 11.0 minutes, 00.0 seconds
+Found target angle of 90.0 at time:   05.0 hours, 11.0 minutes, 02.5 seconds
+Found target angle of 90.0 at time:   05.0 hours, 11.0 minutes, 05.0 seconds
+Found target angle of 90.0 at time:   05.0 hours, 43.0 minutes, 30.0 seconds
+Found target angle of 90.0 at time:   05.0 hours, 43.0 minutes, 32.5 seconds
+Found target angle of 90.0 at time:   05.0 hours, 43.0 minutes, 35.0 seconds
+Found target angle of 90.0 at time:   05.0 hours, 43.0 minutes, 37.5 seconds
+Found target angle of 90.0 at time:   05.0 hours, 43.0 minutes, 40.0 seconds
+Found target angle of 90.0 at time:   05.0 hours, 43.0 minutes, 42.5 seconds
+Found target angle of 90.0 at time:   05.0 hours, 43.0 minutes, 45.0 seconds
+Found target angle of 90.0 at time:   05.0 hours, 43.0 minutes, 47.5 seconds
+Found target angle of 90.0 at time:   06.0 hours, 16.0 minutes, 15.0 seconds
+Found target angle of 90.0 at time:   06.0 hours, 16.0 minutes, 17.5 seconds
+Found target angle of 90.0 at time:   06.0 hours, 16.0 minutes, 20.0 seconds
+Found target angle of 90.0 at time:   06.0 hours, 16.0 minutes, 22.5 seconds
+Found target angle of 90.0 at time:   06.0 hours, 16.0 minutes, 25.0 seconds
+Found target angle of 90.0 at time:   06.0 hours, 16.0 minutes, 27.5 seconds
+Found target angle of 90.0 at time:   06.0 hours, 16.0 minutes, 30.0 seconds
+Found target angle of 90.0 at time:   06.0 hours, 16.0 minutes, 32.5 seconds
+Found target angle of 90.0 at time:   06.0 hours, 49.0 minutes, 00.0 seconds
+Found target angle of 90.0 at time:   06.0 hours, 49.0 minutes, 02.5 seconds
+Found target angle of 90.0 at time:   06.0 hours, 49.0 minutes, 05.0 seconds
+Found target angle of 90.0 at time:   06.0 hours, 49.0 minutes, 07.5 seconds
+Found target angle of 90.0 at time:   06.0 hours, 49.0 minutes, 10.0 seconds
+Found target angle of 90.0 at time:   06.0 hours, 49.0 minutes, 12.5 seconds
+Found target angle of 90.0 at time:   06.0 hours, 49.0 minutes, 15.0 seconds
+Found target angle of 90.0 at time:   07.0 hours, 21.0 minutes, 42.5 seconds
+Found target angle of 90.0 at time:   07.0 hours, 21.0 minutes, 45.0 seconds
+Found target angle of 90.0 at time:   07.0 hours, 21.0 minutes, 47.5 seconds
+Found target angle of 90.0 at time:   07.0 hours, 21.0 minutes, 50.0 seconds
+Found target angle of 90.0 at time:   07.0 hours, 21.0 minutes, 52.5 seconds
+Found target angle of 90.0 at time:   07.0 hours, 21.0 minutes, 55.0 seconds
+Found target angle of 90.0 at time:   07.0 hours, 21.0 minutes, 57.5 seconds
+Found target angle of 90.0 at time:   07.0 hours, 22.0 minutes, 00.0 seconds
+Found target angle of 90.0 at time:   07.0 hours, 54.0 minutes, 27.5 seconds
+Found target angle of 90.0 at time:   07.0 hours, 54.0 minutes, 30.0 seconds
+Found target angle of 90.0 at time:   07.0 hours, 54.0 minutes, 32.5 seconds
+Found target angle of 90.0 at time:   07.0 hours, 54.0 minutes, 35.0 seconds
+Found target angle of 90.0 at time:   07.0 hours, 54.0 minutes, 37.5 seconds
+Found target angle of 90.0 at time:   07.0 hours, 54.0 minutes, 40.0 seconds
+Found target angle of 90.0 at time:   07.0 hours, 54.0 minutes, 42.5 seconds
+Found target angle of 90.0 at time:   08.0 hours, 27.0 minutes, 10.0 seconds
+Found target angle of 90.0 at time:   08.0 hours, 27.0 minutes, 12.5 seconds
+Found target angle of 90.0 at time:   08.0 hours, 27.0 minutes, 15.0 seconds
+Found target angle of 90.0 at time:   08.0 hours, 27.0 minutes, 17.5 seconds
+Found target angle of 90.0 at time:   08.0 hours, 27.0 minutes, 20.0 seconds
+Found target angle of 90.0 at time:   08.0 hours, 27.0 minutes, 22.5 seconds
+Found target angle of 90.0 at time:   08.0 hours, 27.0 minutes, 25.0 seconds
+Found target angle of 90.0 at time:   08.0 hours, 27.0 minutes, 27.5 seconds
+Found target angle of 90.0 at time:   08.0 hours, 59.0 minutes, 55.0 seconds
+Found target angle of 90.0 at time:   08.0 hours, 59.0 minutes, 57.5 seconds
+Found target angle of 90.0 at time:   09.0 hours, 00.0 minutes, 00.0 seconds
+Found target angle of 90.0 at time:   09.0 hours, 00.0 minutes, 02.5 seconds
+Found target angle of 90.0 at time:   09.0 hours, 00.0 minutes, 05.0 seconds
+Found target angle of 90.0 at time:   09.0 hours, 00.0 minutes, 07.5 seconds
+Found target angle of 90.0 at time:   09.0 hours, 00.0 minutes, 10.0 seconds
+Found target angle of 90.0 at time:   09.0 hours, 32.0 minutes, 37.5 seconds
+Found target angle of 90.0 at time:   09.0 hours, 32.0 minutes, 40.0 seconds
+Found target angle of 90.0 at time:   09.0 hours, 32.0 minutes, 42.5 seconds
+Found target angle of 90.0 at time:   09.0 hours, 32.0 minutes, 45.0 seconds
+Found target angle of 90.0 at time:   09.0 hours, 32.0 minutes, 47.5 seconds
+Found target angle of 90.0 at time:   09.0 hours, 32.0 minutes, 50.0 seconds
+Found target angle of 90.0 at time:   09.0 hours, 32.0 minutes, 52.5 seconds
+Found target angle of 90.0 at time:   09.0 hours, 32.0 minutes, 55.0 seconds
+Found target angle of 90.0 at time:   10.0 hours, 05.0 minutes, 22.5 seconds
+Found target angle of 90.0 at time:   10.0 hours, 05.0 minutes, 25.0 seconds
+Found target angle of 90.0 at time:   10.0 hours, 05.0 minutes, 27.5 seconds
+Found target angle of 90.0 at time:   10.0 hours, 05.0 minutes, 30.0 seconds
+Found target angle of 90.0 at time:   10.0 hours, 05.0 minutes, 32.5 seconds
+Found target angle of 90.0 at time:   10.0 hours, 05.0 minutes, 35.0 seconds
+Found target angle of 90.0 at time:   10.0 hours, 05.0 minutes, 37.5 seconds
+Found target angle of 90.0 at time:   10.0 hours, 38.0 minutes, 05.0 seconds
+Found target angle of 90.0 at time:   10.0 hours, 38.0 minutes, 07.5 seconds
+Found target angle of 90.0 at time:   10.0 hours, 38.0 minutes, 10.0 seconds
+Found target angle of 90.0 at time:   10.0 hours, 38.0 minutes, 12.5 seconds
+Found target angle of 90.0 at time:   10.0 hours, 38.0 minutes, 15.0 seconds
+Found target angle of 90.0 at time:   10.0 hours, 38.0 minutes, 17.5 seconds
+Found target angle of 90.0 at time:   10.0 hours, 38.0 minutes, 20.0 seconds
+Found target angle of 90.0 at time:   10.0 hours, 38.0 minutes, 22.5 seconds
+Found target angle of 90.0 at time:   11.0 hours, 10.0 minutes, 50.0 seconds
+Found target angle of 90.0 at time:   11.0 hours, 10.0 minutes, 52.5 seconds
+Found target angle of 90.0 at time:   11.0 hours, 10.0 minutes, 55.0 seconds
+Found target angle of 90.0 at time:   11.0 hours, 10.0 minutes, 57.5 seconds
+Found target angle of 90.0 at time:   11.0 hours, 11.0 minutes, 00.0 seconds
+Found target angle of 90.0 at time:   11.0 hours, 11.0 minutes, 02.5 seconds
+Found target angle of 90.0 at time:   11.0 hours, 11.0 minutes, 05.0 seconds
+Found target angle of 90.0 at time:   11.0 hours, 43.0 minutes, 32.5 seconds
+Found target angle of 90.0 at time:   11.0 hours, 43.0 minutes, 35.0 seconds
+Found target angle of 90.0 at time:   11.0 hours, 43.0 minutes, 37.5 seconds
+Found target angle of 90.0 at time:   11.0 hours, 43.0 minutes, 40.0 seconds
+Found target angle of 90.0 at time:   11.0 hours, 43.0 minutes, 42.5 seconds
+Found target angle of 90.0 at time:   11.0 hours, 43.0 minutes, 45.0 seconds
+Found target angle of 90.0 at time:   11.0 hours, 43.0 minutes, 47.5 seconds
+Found target angle of 90.0 at time:   11.0 hours, 43.0 minutes, 50.0 seconds
+
+There were 171 times found for the target angle 90.0
+
+
+   Hello world, from the ClockSolver program!!
+
+
+  Your simulation is running,
+    looking for angles of 180.0 degrees
+    with a time slice of 1.8 seconds
+
+
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 24.0 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 25.8 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 27.6 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 29.4 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 31.2 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 33.0 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 34.8 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 36.6 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 38.4 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 40.2 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 42.0 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 43.8 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 45.6 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 47.4 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 49.2 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 51.0 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 52.8 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 54.6 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 56.4 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 58.2 seconds
+Found target angle of 180.0 at time:   00.0 hours, 32.0 minutes, 60.0 seconds
+Found target angle of 180.0 at time:   00.0 hours, 33.0 minutes, 01.8 seconds
+Found target angle of 180.0 at time:   00.0 hours, 33.0 minutes, 03.6 seconds
+Found target angle of 180.0 at time:   01.0 hours, 37.0 minutes, 51.6 seconds
+Found target angle of 180.0 at time:   01.0 hours, 37.0 minutes, 53.4 seconds
+Found target angle of 180.0 at time:   01.0 hours, 37.0 minutes, 55.2 seconds
+Found target angle of 180.0 at time:   01.0 hours, 37.0 minutes, 57.0 seconds
+Found target angle of 180.0 at time:   01.0 hours, 37.0 minutes, 58.8 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 00.6 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 02.4 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 04.2 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 06.0 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 07.8 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 09.6 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 11.4 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 13.2 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 15.0 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 16.8 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 18.6 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 20.4 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 22.2 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 24.0 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 25.8 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 27.6 seconds
+Found target angle of 180.0 at time:   01.0 hours, 38.0 minutes, 29.4 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 19.2 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 21.0 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 22.8 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 24.6 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 26.4 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 28.2 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 30.0 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 31.8 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 33.6 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 35.4 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 37.2 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 39.0 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 40.8 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 42.6 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 44.4 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 46.2 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 48.0 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 49.8 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 51.6 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 53.4 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 55.2 seconds
+Found target angle of 180.0 at time:   02.0 hours, 43.0 minutes, 57.0 seconds
+Found target angle of 180.0 at time:   03.0 hours, 48.0 minutes, 46.8 seconds
+Found target angle of 180.0 at time:   03.0 hours, 48.0 minutes, 48.6 seconds
+Found target angle of 180.0 at time:   03.0 hours, 48.0 minutes, 50.4 seconds
+Found target angle of 180.0 at time:   03.0 hours, 48.0 minutes, 52.2 seconds
+Found target angle of 180.0 at time:   03.0 hours, 48.0 minutes, 54.0 seconds
+Found target angle of 180.0 at time:   03.0 hours, 48.0 minutes, 55.8 seconds
+Found target angle of 180.0 at time:   03.0 hours, 48.0 minutes, 57.6 seconds
+Found target angle of 180.0 at time:   03.0 hours, 48.0 minutes, 59.4 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 01.2 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 03.0 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 04.8 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 06.6 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 08.4 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 10.2 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 12.0 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 13.8 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 15.6 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 17.4 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 19.2 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 21.0 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 22.8 seconds
+Found target angle of 180.0 at time:   03.0 hours, 49.0 minutes, 24.6 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 14.4 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 16.2 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 18.0 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 19.8 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 21.6 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 23.4 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 25.2 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 27.0 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 28.8 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 30.6 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 32.4 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 34.2 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 36.0 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 37.8 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 39.6 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 41.4 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 43.2 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 45.0 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 46.8 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 48.6 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 50.4 seconds
+Found target angle of 180.0 at time:   04.0 hours, 54.0 minutes, 52.2 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 42.0 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 43.8 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 45.6 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 47.4 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 49.2 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 51.0 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 52.8 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 54.6 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 56.4 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 58.2 seconds
+Found target angle of 180.0 at time:   05.0 hours, 59.0 minutes, 60.0 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 01.8 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 03.6 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 05.4 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 07.2 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 09.0 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 10.8 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 12.6 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 14.4 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 16.2 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 18.0 seconds
+Found target angle of 180.0 at time:   06.0 hours, 00.0 minutes, 19.8 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 09.6 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 11.4 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 13.2 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 15.0 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 16.8 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 18.6 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 20.4 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 22.2 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 24.0 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 25.8 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 27.6 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 29.4 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 31.2 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 33.0 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 34.8 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 36.6 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 38.4 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 40.2 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 42.0 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 43.8 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 45.6 seconds
+Found target angle of 180.0 at time:   07.0 hours, 05.0 minutes, 47.4 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 37.2 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 39.0 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 40.8 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 42.6 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 44.4 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 46.2 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 48.0 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 49.8 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 51.6 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 53.4 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 55.2 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 57.0 seconds
+Found target angle of 180.0 at time:   08.0 hours, 10.0 minutes, 58.8 seconds
+Found target angle of 180.0 at time:   08.0 hours, 11.0 minutes, 00.6 seconds
+Found target angle of 180.0 at time:   08.0 hours, 11.0 minutes, 02.4 seconds
+Found target angle of 180.0 at time:   08.0 hours, 11.0 minutes, 04.2 seconds
+Found target angle of 180.0 at time:   08.0 hours, 11.0 minutes, 06.0 seconds
+Found target angle of 180.0 at time:   08.0 hours, 11.0 minutes, 07.8 seconds
+Found target angle of 180.0 at time:   08.0 hours, 11.0 minutes, 09.6 seconds
+Found target angle of 180.0 at time:   08.0 hours, 11.0 minutes, 11.4 seconds
+Found target angle of 180.0 at time:   08.0 hours, 11.0 minutes, 13.2 seconds
+Found target angle of 180.0 at time:   08.0 hours, 11.0 minutes, 15.0 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 04.8 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 06.6 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 08.4 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 10.2 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 12.0 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 13.8 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 15.6 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 17.4 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 19.2 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 21.0 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 22.8 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 24.6 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 26.4 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 28.2 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 30.0 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 31.8 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 33.6 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 35.4 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 37.2 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 39.0 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 40.8 seconds
+Found target angle of 180.0 at time:   09.0 hours, 16.0 minutes, 42.6 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 32.4 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 34.2 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 36.0 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 37.8 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 39.6 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 41.4 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 43.2 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 45.0 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 46.8 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 48.6 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 50.4 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 52.2 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 54.0 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 55.8 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 57.6 seconds
+Found target angle of 180.0 at time:   10.0 hours, 21.0 minutes, 59.4 seconds
+Found target angle of 180.0 at time:   10.0 hours, 22.0 minutes, 01.2 seconds
+Found target angle of 180.0 at time:   10.0 hours, 22.0 minutes, 03.0 seconds
+Found target angle of 180.0 at time:   10.0 hours, 22.0 minutes, 04.8 seconds
+Found target angle of 180.0 at time:   10.0 hours, 22.0 minutes, 06.6 seconds
+Found target angle of 180.0 at time:   10.0 hours, 22.0 minutes, 08.4 seconds
+Found target angle of 180.0 at time:   10.0 hours, 22.0 minutes, 10.2 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 00.0 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 01.8 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 03.6 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 05.4 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 07.2 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 09.0 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 10.8 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 12.6 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 14.4 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 16.2 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 18.0 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 19.8 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 21.6 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 23.4 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 25.2 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 27.0 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 28.8 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 30.6 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 32.4 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 34.2 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 36.0 seconds
+Found target angle of 180.0 at time:   11.0 hours, 27.0 minutes, 37.8 seconds
+
+There were 243 times found for the target angle 180.0
+
+
+   Hello world, from the ClockSolver program!!
+
+
+  Your simulation is running,
+    looking for angles of 90.0 degrees
+    with a time slice of 1800.0 seconds
+
+
+Found target angle of 90.0 at time:   03.0 hours, 00.0 minutes, 00.0 seconds
+Found target angle of 90.0 at time:   09.0 hours, 00.0 minutes, 00.0 seconds
+
+There were 2 times found for the target angle 90.0
+
