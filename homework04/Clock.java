@@ -100,7 +100,7 @@ public class Clock {
          return timeSlice;
       }
       double given = Double.parseDouble(argValue);
-      if ( given > 0 ){ //if given value is valid, return it
+      if ( given > 0 && given < 1800){ //if given value is valid, return it
          return given;
       } else {
          throw new NumberFormatException(); //if invalid value given throw error

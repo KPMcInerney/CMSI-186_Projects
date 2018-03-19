@@ -66,7 +66,7 @@ public class ClockSolver {
                clockValues[i] = Double.parseDouble(args[i]);
             }
          } catch( NumberFormatException nfe ){ //catches number format exceptions and explains errors
-            if ( args.length > 1 && Integer.parseInt(args[1]) <= 0 ){ //prints these statements if there is a range error
+            if ( args.length > 1 && Double.parseDouble(args[1]) <= 0 ){ //prints these statements if there is a range error
                System.out.println( "   Sorry, your arguments are invalid." );
                System.out.println( "     " + nfe );
                System.out.println( "       [degree value out of range]" );
@@ -74,7 +74,7 @@ public class ClockSolver {
                System.exit( 1 );
             } else { //prints these statements if there is a number validity error
                System.out.println( "   Sorry, your arguments are invalid." );
-               System.out.println( "     Please use real numbers [e.g., '90.0' for 90 degrees]");
+               System.out.println( "     Please use real numbers [e.g., '90.0' for 90 degrees] between 0 and 1800");
                System.out.println( "       [time slice out of range]" );
                System.out.println( "     Please try again.......\n" );
                System.exit( 1 );
