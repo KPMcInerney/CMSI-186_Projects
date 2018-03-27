@@ -29,8 +29,8 @@ public class Timer {
    */
    public Timer( String args[] ) { //initializes variables in contructor
       totalSeconds = 0;
-      if ( ((args.length % 4) + 1) == 0 ){ //creates timeSlice if ones not given
-         timeSlice = validateTimeSliceArg( args[0] );
+      if ( (args.length % 4) == 1 ){ //creates timeSlice if ones not given
+         timeSlice = validateTimeSliceArg( args[args.length - 1] );
       } else {
          timeSlice = validateTimeSliceArg( "" );
       }
@@ -64,7 +64,7 @@ public class Timer {
          return timeSlice;
       }
       double given = Double.parseDouble(argValue);
-      if ( given > 1 ){ //if given value is valid, return it
+      if ( given > 0 ){ //if given value is valid, return it
          return given;
       } else {
          throw new NumberFormatException(); //if invalid value given throw error
@@ -78,6 +78,10 @@ public class Timer {
    */
    public double getTotalSeconds() {
       return totalSeconds; //returns total seconds
+   }
+
+   public double getTimeSlice(){
+      return timeSlice;
    }
 
   /**

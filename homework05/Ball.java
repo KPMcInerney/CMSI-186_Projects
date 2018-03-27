@@ -12,26 +12,30 @@
  *  Exceptions    :  IllegalArgumentException when the input arguments are "hinky"
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~**/
 import java.awt.geom.Line2D;
+import java.text.DecimalFormat;
 
  public class Ball {
     private double x, y, xSpeed, ySpeed;
-    private double oldX, oldY;
     private double ballRadius = 4.45;
-    private Line2D.Double line1;
+    private double time = 1;
+    private static DecimalFormat formatter = new DecimalFormat("#000.0000"); //sets format for the strings
 
-
-    public Ball( String x, String y, String xSpeed, String ySpeed ) {
+    public Ball( String x, String y, String xSpeed, String ySpeed) {
       this.x = Double.parseDouble(x);
       this.y = Double.parseDouble(y);
       this.xSpeed = Double.parseDouble(xSpeed);
       this.ySpeed = Double.parseDouble(ySpeed);
    }
 
-   public void ballRun(){
+   public void ballRun( double seconds ){
+      time = seconds;
+      xSpeed = applyFriction(xSpeed);
+      ySpeed = applyFriction(ySpeed);
       update();
-      handleLine();
-      xSpeed = ballFriction(xSpeed);
-      ySpeed = ballFriction(ySpeed);
+   }
+
+   public double getBallRadius(){
+      return ballRadius;
    }
 
    public double getX(){
@@ -42,23 +46,33 @@ import java.awt.geom.Line2D;
       return y;
    }
 
-   public double ballFriction( double varSpeed){
-      return varSpeed - (varSpeed * 0.01);
+   public double getXSpeed(){
+      return xSpeed;
+   }
+
+   public double getYSpeed(){
+      return ySpeed;
+   }
+
+   public String toString(){
+      String resultX = formatter.format(x);
+      String resultY = formatter.format(y);
+      String resultXSpeed = formatter.format(xSpeed);
+      String resultYSpeed = formatter.format(ySpeed);
+      if ( xSpeed == 0 && ySpeed == 0 ){
+         return ( "position <" + resultX + "," + resultY + ">" );
+      } else {
+         return ( "position <" + resultX + "," + resultY + "> with velocity <" + resultXSpeed + "," + resultYSpeed + ">" );
+      }
+   }
+
+   public double applyFriction( double varSpeed ){
+      return (varSpeed - (varSpeed * 0.01 * time));
    }
 
    public void update(){
-      oldX = x;
-      oldY = y;
-      x += xSpeed;
-      y += ySpeed;
-   }
-
-   public void handleLine(){
-      Line2D.Double line1 = new Line2D.Double( x, y, oldX, oldY );
-   }
-
-   public Line2D getLine(){
-      return line1;
+      x += xSpeed * time;
+      y += ySpeed * time;
    }
 
 }
