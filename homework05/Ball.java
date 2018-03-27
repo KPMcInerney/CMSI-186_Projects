@@ -15,11 +15,16 @@ import java.awt.geom.Line2D;
 import java.text.DecimalFormat;
 
  public class Ball {
+    /**
+     *  Class field definintions go here
+     */
     private double x, y, xSpeed, ySpeed;
     private double ballRadius = 4.45;
     private double time = 1;
     private static DecimalFormat formatter = new DecimalFormat("#000.0000"); //sets format for the strings
-
+    /**
+     *  Constructor goes here
+     */
     public Ball( String x, String y, String xSpeed, String ySpeed) {
       this.x = Double.parseDouble(x);
       this.y = Double.parseDouble(y);
@@ -27,34 +32,34 @@ import java.text.DecimalFormat;
       this.ySpeed = Double.parseDouble(ySpeed);
    }
 
-   public void ballRun( double seconds ){
-      time = seconds;
-      xSpeed = applyFriction(xSpeed);
-      ySpeed = applyFriction(ySpeed);
+   public void ballRun( double seconds ){ //method to change ball values every tick
+      time = seconds; //sets time variable to given timeSlice
+      xSpeed = applyFriction(xSpeed); //calculates new xSpeed
+      ySpeed = applyFriction(ySpeed); //calculates new YSpeed
       update();
    }
 
-   public double getBallRadius(){
+   public double getBallRadius(){ //method to return balls radius
       return ballRadius;
    }
 
-   public double getX(){
+   public double getX(){ //method to return ballX
       return x;
    }
 
-   public double getY(){
+   public double getY(){ //method to return ballY
       return y;
    }
 
-   public double getXSpeed(){
+   public double getXSpeed(){ //method to return ball XSpeed
       return xSpeed;
    }
 
-   public double getYSpeed(){
+   public double getYSpeed(){ //method to return ball YSpeed
       return ySpeed;
    }
 
-   public String toString(){
+   public String toString(){ //method to return ball String form
       String resultX = formatter.format(x);
       String resultY = formatter.format(y);
       String resultXSpeed = formatter.format(xSpeed);
@@ -62,11 +67,11 @@ import java.text.DecimalFormat;
       return ( "position <" + resultX + "," + resultY + "> velocity <" + resultXSpeed + "," + resultYSpeed + ">" );
    }
 
-   public double applyFriction( double varSpeed ){
+   public double applyFriction( double varSpeed ){ //method to apply friction to ball speed values
       return (varSpeed - (varSpeed * 0.01 * time));
    }
 
-   public void update(){
+   public void update(){ //method to update ballX and ballY positions
       x += xSpeed * time;
       y += ySpeed * time;
    }

@@ -80,6 +80,10 @@ public class Timer {
       return totalSeconds; //returns total seconds
    }
 
+   /**
+    *  Method to return the TimeSlice of this clock
+    *  @return TimeSlice value of the current clock
+    */
    public double getTimeSlice(){
       return timeSlice;
    }
