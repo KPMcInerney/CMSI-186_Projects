@@ -24,12 +24,11 @@ import java.util.Random;
     private static double fieldWidth = 1000;
     private static double fieldHeight = 1000;
     private static boolean[] validBalls;
+    private static boolean[] stillMoving;
     private static int invalidBalls = 0;
     private static String[] timeValues = new String[3]; //creates timeValue string to handle hours, mins, and seconds
     private static DecimalFormat formatter = new DecimalFormat("#00.0"); //sets format for the strings
-
-    //check given args for validity
-    //ensure stopped balls are still checked for collision if still inside boundaries
+    private static int result = 0;
 
     public SoccerSim(){
       super();
@@ -38,12 +37,15 @@ import java.util.Random;
    public static void handleInitialArgs( String args[] ){
       if ( ((args.length % 4) == 0 && args.length > 7) || ((args.length % 4) == 1 && args.length > 7) ) {
          try {
+            checkArgs( args );
             timer = new Timer( args );
             numBalls = args.length/4 + 1;
             balls = new Ball[numBalls];
             validBalls = new boolean[numBalls];
+            stillMoving = new boolean[numBalls];
             for ( int j = 0; j < validBalls.length; j++ ){
                validBalls[j] = true;
+               stillMoving[j] = true;
             }
             for ( int i = 0; i < balls.length - 1; i++ ){
                balls[i] = new Ball( args[0+(i*4)], args[1+(i*4)], args[2+(i*4)], args[3+(i*4)] );
@@ -61,6 +63,46 @@ import java.util.Random;
                              "   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]\n" +
                              "   Please try again...........\n" );
          System.exit( 1 );
+      }
+   }
+
+   public static void checkArgs( String args[] ){
+      try {
+         int counter = 0;
+         for ( int i = 0; i < args.length; i++ ){
+            if ( counter % 4 == 0 || counter % 4 == 1 ){
+               if ( Double.parseDouble(args[counter]) > fieldWidth/2 || Double.parseDouble(args[counter]) < -fieldHeight/2 ){
+                  result = 1;
+                  throw new NumberFormatException();
+               }
+            }
+            if ( counter % 4 == 2 || counter % 4 == 3 ){
+               if ( Integer.parseInt(args[counter]) > 50 || Integer.parseInt(args[counter]) < -50 ){
+                  result = 2;
+                  throw new NumberFormatException();
+               }
+            }
+            counter += 1;
+         }
+      } catch( NumberFormatException nfe ) {
+         if ( result == 1 ){
+            System.out.println( "   Sorry, your arguments are invalid." );
+            System.out.println( "     Please use ball coordinates inside the boundaries of the field: ");
+            System.out.println( "     width of [" + fieldWidth/2 + ",-" + fieldWidth/2 + "] and height of [" +
+                                      fieldHeight/2 + ",-" + fieldHeight/2 + "]" );
+            System.out.println( "   Please try again.......\n" );
+            System.exit( 1 );
+         } else if ( result == 2 ) {
+            System.out.println( "   Sorry, your arguments are invalid." );
+            System.out.println( "     Please use ballX and ballY velocities between 50 & -50");
+            System.out.println( "       [ball velocities out of range]" );
+            System.out.println( "   Please try again.......\n" );
+            System.exit( 1 );
+         } else {
+            System.out.println( "   Sorry, your arguments are invalid." );
+            System.out.println( "   Please try again.......\n" );
+            System.exit( 1 );
+         }
       }
    }
 
@@ -98,8 +140,8 @@ import java.util.Random;
          if ( validBalls[i] ){
             if ( balls[i].getX() > fieldWidth/2 || balls[i].getX() < (fieldWidth/2 * -1) || balls[i].getY() > fieldHeight/2 || balls[i].getY() < (fieldHeight/2 * -1) ){
                validBalls[i] = false;
+               stillMoving[i] = false;
                invalidBalls += 1;
-               System.out.println("boundary checker");
             }
          }
       }
@@ -110,15 +152,14 @@ import java.util.Random;
 
    public static void velocityChecker(){
       for (int i = 0; i < balls.length - 1; i++){
-         if ( validBalls[i] ){
+         if ( validBalls[i] && stillMoving[i] ){
             if ( Math.abs(balls[i].getXSpeed()) < 0.0833 || Math.abs(balls[i].getYSpeed()) < 0.0833 ){
-               validBalls[i] = false;
+               stillMoving[i] = false;
                invalidBalls += 1;
-               System.out.println("velocity checker");
             }
          }
       }
-      if ( invalidBalls == validBalls.length - 1){
+      if ( invalidBalls == validBalls.length - 1 ){
          endSim( -1, -1 );
       }
    }
@@ -126,11 +167,26 @@ import java.util.Random;
    public static void reportFunction(){
       System.out.println( "Time Slice: " + timeValues[0] + ":" + timeValues[1] + ":" + timeValues[2] );
       for (int i = 0; i < balls.length; i++){
-         if ( validBalls[i] || !validBalls[i] ){
+         if ( validBalls[i] ){
             if ( i == validBalls.length - 1 ){
-               System.out.println( "   Ball " + i + ": " + balls[i].toString() + " " + validBalls[i] );
+               System.out.println( "   Pole: " + balls[i].toString() );
             } else {
-               System.out.println( "   Ball " + i + ": " + balls[i].toString() + " " + validBalls[i] );
+               if ( stillMoving[i] ){
+                  System.out.println( "   Ball " + i + ": " + balls[i].toString() + " [In boundaries][Moving]" );
+               } else {
+                  System.out.println( "   Ball " + i + ": " + balls[i].toString() + " [In boundaries][Not moving]" );
+               }
+            }
+         }
+         if ( !validBalls[i] ){
+            if ( i == validBalls.length - 1 ){
+               System.out.println( "   Pole: " + balls[i].toString() );
+            } else {
+               if ( stillMoving[i] ){
+                  System.out.println( "   Ball " + i + ": " + balls[i].toString() + " [Out of Bounds][Moving]" );
+               } else {
+                  System.out.println( "   Ball " + i + ": " + balls[i].toString() + " [Out of Bounds][Not moving]" );
+               }
             }
          }
       }
@@ -138,7 +194,6 @@ import java.util.Random;
    }
 
    public static void endSim( int a, int b ){
-      //System.out.println( validBalls[0] + " " + validBalls[1] + " " + validBalls[2] );
       if ( a == -1 && b == -1 ) {
          System.out.println( "        -- NO COLLISION IS POSSIBLE --");
          System.out.println( "   -- ALL REMAINING VALID BALLS HAVE STOPPED --" );
@@ -168,16 +223,20 @@ import java.util.Random;
       }
    }
 
+   public static void formatTimeValues(){
+      timeValues[0] = formatter.format( Math.round( timer.getTotalSeconds() / 3600 - .5) ); //value set to hours
+      timeValues[1] = formatter.format( Math.round( (timer.getTotalSeconds() % 3600) / 60 - .5 ) ); //value set to minutes
+      timeValues[2] = formatter.format( timer.getTotalSeconds() % 60 ); //value set to seconds
+   }
+
    public static void main ( String args[] ){
       SoccerSim ss = new SoccerSim();
       handleInitialArgs( args );
       System.out.println( "\n    --STARTING SIMULATION--\n");
+      formatTimeValues();
+      reportFunction();
       collisionHandler();
       while (true){
-         timeValues[0] = formatter.format( Math.round( timer.getTotalSeconds() / 3600 - .5) ); //value set to hours
-         timeValues[1] = formatter.format( Math.round( (timer.getTotalSeconds() % 3600) / 60 - .5 ) ); //value set to minutes
-         timeValues[2] = formatter.format( timer.getTotalSeconds() % 60 ); //value set to seconds
-         reportFunction();
          for ( int i = 0; i < balls.length; i++ ){
             if ( validBalls[i] ){
                balls[i].ballRun( timer.getTimeSlice() );
@@ -186,6 +245,8 @@ import java.util.Random;
          boundaryChecker();
          velocityChecker();
          collisionHandler();
+         formatTimeValues();
+         reportFunction();
          timer.tick();
       }
    }

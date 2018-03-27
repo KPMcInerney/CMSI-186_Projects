@@ -59,11 +59,7 @@ import java.text.DecimalFormat;
       String resultY = formatter.format(y);
       String resultXSpeed = formatter.format(xSpeed);
       String resultYSpeed = formatter.format(ySpeed);
-      if ( xSpeed == 0 && ySpeed == 0 ){
-         return ( "position <" + resultX + "," + resultY + ">" );
-      } else {
-         return ( "position <" + resultX + "," + resultY + "> with velocity <" + resultXSpeed + "," + resultYSpeed + ">" );
-      }
+      return ( "position <" + resultX + "," + resultY + "> velocity <" + resultXSpeed + "," + resultYSpeed + ">" );
    }
 
    public double applyFriction( double varSpeed ){
