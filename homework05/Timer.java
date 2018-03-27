@@ -109,5 +109,9 @@ public class Timer {
       System.out.println( "  Creating a new timer: " );
       Timer timer = new Timer( args );
       System.out.println( "    New timer created: " + timer.toString() );
+      System.out.println( "Time Slice: " + timer.getTimeSlice() );
+      System.out.println( "Total Seconds: " + timer.getTotalSeconds() );
+      timer.tick();
+      System.out.println( "Total Seconds: " + timer.getTotalSeconds() );
    }
 }

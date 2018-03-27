@@ -11,7 +11,6 @@
  *  Warnings      :  None
  *  Exceptions    :  IllegalArgumentException when the input arguments are "hinky"
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~**/
-import static java.lang.Math.sqrt;
 import java.awt.geom.Line2D;
 import java.lang.Math;
 import java.text.DecimalFormat;
