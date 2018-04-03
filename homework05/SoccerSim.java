@@ -39,7 +39,7 @@ import java.util.Random;
    }
 
    public static void handleInitialArgs( String args[] ){ //method to handle initial arguments
-      if ( ((args.length % 4) == 0 && args.length > 7) || ((args.length % 4) == 1 && args.length > 7) ) { //validates arg length
+      if ( ((args.length % 4) == 0 && args.length > 3) || ((args.length % 4) == 1 && args.length > 3) ) { //validates arg length
          try {
             checkArgs( args ); //ensures validity of given args
             timer = new Timer( args ); //creates timer
