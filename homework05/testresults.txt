@@ -1,0 +1,182 @@
+.                                       
+.                                       
+======================================  
+... Testing Ball class ...              
+======================================  
+.                                       
+.                                       
+.                                       
+.                                       
+======================================  
+... Testing Timer class ...                
+======================================  
+
+TIMER CLASS TESTER PROGRAM
+--------------------------
+
+  Creating a new timer: 
+    New timer created:  TimeSlice arg: 1.0
+Time Slice: 1.0
+Total Seconds: 0.0
+Total Seconds: 1.0
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim no args...        
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim one arg...        
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim two args...       
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim three args...     
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim six args...       
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim out of bounds...  
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim negative time slice...
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim time slice too large...
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim time slice value of zero...
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim check for collision...
+======================================  
+
+    --STARTING SIMULATION--
+
+Time Slice: 00.0:00.0:00.0
+   Ball 0: position <010.0000,010.0000> velocity <001.0000,001.0000> [In boundaries][Moving]
+   Ball 1: position <020.0000,020.0000> velocity <-001.0000,-001.0000> [In boundaries][Moving]
+   Pole: position <-096.7587,127.2635> velocity <000.0000,000.0000>
+
+
+Time Slice: 00.0:00.0:00.0
+   Ball 0: position <010.9900,010.9900> velocity <000.9900,000.9900> [In boundaries][Moving]
+   Ball 1: position <019.0100,019.0100> velocity <-000.9900,-000.9900> [In boundaries][Moving]
+   Pole: position <-096.7587,127.2635> velocity <000.0000,000.0000>
+
+
+   CONTACT ball at time 00.0 hours, 00.0 minutes, 00.0 seconds. 
+COLLISION BETWEEN:
+   Ball 0 at position <011.9701,011.9701> velocity <000.9801,000.9801>
+   ---- AND ----
+   Ball 1 at position <018.0299,018.0299> velocity <-000.9801,-000.9801>
+
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball should come to rest...
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball should go out of bounds...
+======================================  
+   Sorry you must enter 4 arguments per ball for at least 2 balls and/or an optional time slice
+   Usage: java Ball (<ballx> <bally> <ballxSpeed> <ballySpeed>) x n [optional time slice]
+   Please try again...........
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball set six balls subsecond time slice...
+======================================  
+   Sorry, your arguments are invalid.
+     Please use ballX and ballY velocities between 50 & -50
+       [ball velocities out of range]
+   Please try again.......
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball set five balls 1.234 second time slice...
+======================================  
+   Sorry, your arguments are invalid.
+     Please use ballX and ballY velocities between 50 & -50
+       [ball velocities out of range]
+   Please try again.......
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball set ten balls 10 second time slice...
+======================================  
+   Sorry, your arguments are invalid.
+     Please use ballX and ballY velocities between 50 & -50
+       [ball velocities out of range]
+   Please try again.......
+
+.                                       
+.                                       
+======================================  
+... End of SoccerSim Testing...         
+======================================  
