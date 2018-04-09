@@ -38,14 +38,14 @@ public class BrobInt {
 
   /// Some constants for other intrinsic data types
   ///  these can help speed up the math if they fit into the proper memory space
-   public static final BrobInt MAX_INT  = new BrobInt( new Integer( Integer.MAX_VALUE ).toString() );
-   public static final BrobInt MIN_INT  = new BrobInt( new Integer( Integer.MIN_VALUE ).toString() );
-   public static final BrobInt MAX_LONG = new BrobInt( new Long( Long.MAX_VALUE ).toString() );
-   public static final BrobInt MIN_LONG = new BrobInt( new Long( Long.MIN_VALUE ).toString() );
+   // public static final BrobInt MAX_INT  = new BrobInt( new Integer( Integer.MAX_VALUE ).toString() );
+   // public static final BrobInt MIN_INT  = new BrobInt( new Integer( Integer.MIN_VALUE ).toString() );
+   // public static final BrobInt MAX_LONG = new BrobInt( new Long( Long.MAX_VALUE ).toString() );
+   // public static final BrobInt MIN_LONG = new BrobInt( new Long( Long.MIN_VALUE ).toString() );
 
   /// These are the internal fields
    private String internalValue = "";        // internal String representation of this BrobInt
-   private byte   sign          = 0;         // "0" is positive, "1" is negative
+   private int   sign          = 0;         // "0" is positive, "1" is negative
    private String reversed      = "";        // the backwards version of the internal String representation
    private byte[] byteVersion   = null;      // byte array for storing the string values; uses the reversed string
 
@@ -86,7 +86,7 @@ public class BrobInt {
          internalValue = sb.toString();
          reversed = reversedSB.toString();
       } else {
-         sign = 2;
+         sign = 0;
          byteVersion = new byte[value.length()];
          internalValue = value;
          for ( int i = 0; i < value.length(); i++ ){
@@ -97,7 +97,7 @@ public class BrobInt {
       }
    }
 
-   public byte getSign(){
+   public int getSign(){
       return sign;
    }
 
@@ -169,6 +169,13 @@ public class BrobInt {
       if ( sign == 1 && gint.getSign() == 1 ){
          addSign = 1;
       }
+      if ( sign == 0 && gint.getSign() == 1 ){
+         //result.append( subtractByte( new BrobInt(gint.getInternalValue()) ) );
+         return subtractByte( new BrobInt(gint.getInternalValue()) );
+      }
+      if ( sign == 1 && gint.getSign() == 0 ){
+         return gint.subtractByte( new BrobInt( internalValue));
+      }
       if ( internalValue.length() >= input.length() ){
          a = internalValue;
          b = input;
@@ -179,13 +186,13 @@ public class BrobInt {
       int bIndex = b.length() - 1;
       for ( int i = a.length() - 1; i > -1; i-- ){
          if ( a.length() == b.length() ){
-            digit = ( Integer.parseInt(Character.toString(a.charAt(i))) + Integer.parseInt(Character.toString(b.charAt(i))) + rem );
+            digit = ( (a.charAt(i) - '0') + (b.charAt(i) - '0') + rem );
          } else {
             if ( bIndex >= 0 ){
-               digit = ( Integer.parseInt(Character.toString(a.charAt(i))) + Integer.parseInt(Character.toString(b.charAt(bIndex))) + rem );
+               digit = ( (a.charAt(i) - '0') + (b.charAt(bIndex) - '0') + rem );
                bIndex = bIndex - 1;
             } else {
-               digit = Integer.parseInt(Character.toString(a.charAt(i))) + rem;
+               digit = (a.charAt(i) - '0') + rem;
             }
          }
          if ( digit > 9 ) {
@@ -213,7 +220,85 @@ public class BrobInt {
    *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt subtractByte( BrobInt gint ) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+      String input = gint.getInternalValue();
+      String a = "";
+      String b = "";
+      int digit = 0;
+      int borrower = 0;
+      int subSign = 0;
+      int switchOrder = 0;
+      StringBuilder result = new StringBuilder();
+      //System.out.println("sign = " + sign + "  gintSign = " + gint.getSign() );
+      if ( sign == 0 && gint.getSign() == 1 ){
+         return addInt( new BrobInt(gint.getInternalValue()) );
+      }
+      if ( sign == 1 && gint.getSign() == 0 ){
+         result.append( '-' );
+         BrobInt resultIntTemp = new BrobInt( internalValue );
+         result.append( resultIntTemp.addInt(gint).toString() );
+         return ( new BrobInt(result.toString()) );
+      }
+      if ( sign == 1 && gint.getSign() == 1 ){
+         subSign = 1;
+         switchOrder = 1;
+      }
+      if ( internalValue.length() >= input.length() ){
+         a = internalValue;
+         b = input;
+      } else {
+         a = input;
+         b = internalValue;
+         subSign = 1;
+      }
+      if ( internalValue.length() == input.length() ){
+         for ( int j = 0; j < a.length(); j++ ){
+            if ( (internalValue.charAt(j) - '0') < (input.charAt(j) - '0') ){
+               if ( switchOrder == 1 ){
+                  switchOrder = 2;
+               }
+               subSign = 1;
+               break;
+            }
+         }
+      }
+      if ( switchOrder == 2 ){
+         result.append( gint.subtractByte( new BrobInt(this.toString()) ) );
+         BrobInt resultInt = new BrobInt(result.toString());
+         return ( new BrobInt(resultInt.getInternalValue()) );
+      }
+      int bIndex = b.length() - 1;
+      for ( int i = a.length() - 1; i > -1; i-- ){
+         if ( a.length() == b.length() ){
+            if ( ((a.charAt(i) - '0') - borrower) >= (b.charAt(i) - '0') ){
+               digit = ((a.charAt(i) - '0') - borrower) - (b.charAt(i) - '0');
+               borrower = 0;
+            } else {
+               digit = ((a.charAt(i) - '0') + 10) - (b.charAt(i) - '0');
+               borrower = 1;
+            }
+         } else {
+            if ( bIndex >= 0 ){
+               if ( ((a.charAt(i) - '0') - borrower) >= (b.charAt(bIndex) - '0') ){
+                  digit = ((a.charAt(i) - '0') - borrower) - (b.charAt(bIndex) - '0');
+                  borrower = 0;
+               } else {
+                  digit = ((a.charAt(i) - '0') + 10) - (b.charAt(bIndex) - '0');
+                  borrower = 1;
+               }
+            } else {
+               digit = (a.charAt(i) - '0') - borrower;
+               borrower = 0;
+            }
+         }
+         bIndex = bIndex - 1;
+         result.append(digit);
+      }
+      if ( subSign == 1 ){
+         result.append( '-' );
+      }
+      BrobInt resultInt = new BrobInt( result.toString() );
+      BrobInt resultInt2 = new BrobInt( resultInt.reverser().toString() );
+      return (new BrobInt( resultInt2.toString().replaceFirst("^0+(?!$)", "") ) );
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -222,6 +307,42 @@ public class BrobInt {
    *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt subtractInt( BrobInt gint ) {
+      String input = gint.getInternalValue();
+      int argLength = 0;
+      int aIndex = internalValue.length() - 1;
+      int bIndex = input.length() - 1;
+      int digit = 0;
+      int borrower = 0;
+      StringBuilder result = new StringBuilder();
+      if ( aIndex >= bIndex ){
+         argLength = aIndex;
+      } else {
+         argLength = bIndex;
+      }
+      for ( int i = argLength; i > -1; i-- ){
+         if ( aIndex >= 0 && bIndex >= 0 ){
+            if ( ((internalValue.charAt(aIndex) - '0') - borrower) >= (input.charAt(bIndex) - '0') ){
+               digit = ((internalValue.charAt(aIndex) - '0') - borrower) - (input.charAt(bIndex) - '0');
+               borrower = 0;
+            } else {
+               digit = ((internalValue.charAt(aIndex) - '0') + 10) - (input.charAt(bIndex) - '0');
+               borrower = 1;
+            }
+            result.append(digit);
+            aIndex = aIndex - 1;
+            bIndex = bIndex - 1;
+         } else {
+            if ( aIndex >= 0 ){
+               digit = (internalValue.charAt(aIndex) - '0') - borrower;
+               borrower = 0;
+               aIndex = aIndex - 1;
+               result.append(digit);
+            }
+            if ( bIndex >= 0 ){
+
+            }
+         }
+      }
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -301,10 +422,11 @@ public class BrobInt {
          byteVersionOutput = byteVersionOutput.concat( Byte.toString( byteVersion[i] ) );
       }
       byteVersionOutput = new String( new StringBuffer( byteVersionOutput ).reverse() );
-      if ( sign == 0 ) {
+      /*if ( sign == 0 ) {
          sb2.append('+' + internalValue);
          return sb2.toString();
-      } else if ( sign == 1 ) {
+      } else */
+      if ( sign == 1 ) {
          sb2.append('-' + internalValue);
          return sb2.toString();
       } else {
