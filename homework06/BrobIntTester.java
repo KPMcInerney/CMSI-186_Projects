@@ -536,6 +536,13 @@ public class BrobIntTester {
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
 
+      System.out.println( "\n      Test 053.5: Multiplying g15 by g15 [-10 * -10]: " ); //added this test!!!!!!!!!!!!!!!!!
+      try { //added this test!!!!!!!!!!!!!!!!!
+         System.out.println( "      expecting: 100\n" + //added this test!!!!!!!!!!!!!!!!!
+                             "        and got: " + g15.multiply( g15 ) ); //added this test!!!!!!!!!!!!!!!!!
+      } //added this test!!!!!!!!!!!!!!!!!
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); } //added this test!!!!!!!!!!!!!!!!!
+
       System.out.println( "\n      Test 054: Multiplying g17 by g19 [765 * 56789]: " );
       try {
          System.out.println( "      expecting: 43443585\n" +
@@ -543,12 +550,26 @@ public class BrobIntTester {
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
 
+      System.out.println( "\n      Test 054.5: Multiplying g15 by g19 [-10 * 56789]: " ); //added this test!!!!!!!!!!!!!!!!!
+      try { //added this test!!!!!!!!!!!!!!!!!
+         System.out.println( "      expecting: -567890\n" + //added this test!!!!!!!!!!!!!!!!!
+                             "        and got: " + g15.multiply( g19 ) ); //added this test!!!!!!!!!!!!!!!!!
+      } //added this test!!!!!!!!!!!!!!!!!
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); } //added this test!!!!!!!!!!!!!!!!!
+
       System.out.println( "\n      Test 055: Multiplying g20 by g19 [37 * 56789]: " );
       try {
          System.out.println( "      expecting: 2101193\n" +
                              "        and got: " + g20.multiply( g19 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
+
+      System.out.println( "\n      Test 055.5: Multiplying g20 by g15 [37 * -10]: " ); //added this test!!!!!!!!!!!!!!!!!
+      try { //added this test!!!!!!!!!!!!!!!!!
+         System.out.println( "      expecting: -370\n" + //added this test!!!!!!!!!!!!!!!!!
+                             "        and got: " + g20.multiply( g15 ) ); //added this test!!!!!!!!!!!!!!!!!
+      } //added this test!!!!!!!!!!!!!!!!!
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); } //added this test!!!!!!!!!!!!!!!!!
 
       System.out.println( "\n\n    TESTING DIVIDE() METHOD:\n" +
                           "    ========================" );

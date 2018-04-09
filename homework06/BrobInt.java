@@ -97,16 +97,29 @@ public class BrobInt {
       }
    }
 
+   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    *  Method to return the sign (+/-) of this BrobInt
+    *  @return the integer value that is represents the sign(+/-) of this BrobInt
+    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public int getSign(){
       return sign;
    }
 
+   public void setSign( int newSign ){
+      sign = newSign;
+   }
+
+   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    *  Method to return the internalValue string of this BrobInt
+    *  @return the internalValue string (version of this BrobInt without its sign) of this BrobInt
+    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public String getInternalValue(){
       return internalValue;
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to validate that all the characters in the value are valid decimal digits
+   *  @param   value       character value that will be checked for validity
    *  @return  boolean  true if all digits are good
    *  @throws  IllegalArgumentException if something is hinky
    *  note that there is no return false, because of throwing the exception
@@ -307,42 +320,42 @@ public class BrobInt {
    *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt subtractInt( BrobInt gint ) {
-      String input = gint.getInternalValue();
-      int argLength = 0;
-      int aIndex = internalValue.length() - 1;
-      int bIndex = input.length() - 1;
-      int digit = 0;
-      int borrower = 0;
-      StringBuilder result = new StringBuilder();
-      if ( aIndex >= bIndex ){
-         argLength = aIndex;
-      } else {
-         argLength = bIndex;
-      }
-      for ( int i = argLength; i > -1; i-- ){
-         if ( aIndex >= 0 && bIndex >= 0 ){
-            if ( ((internalValue.charAt(aIndex) - '0') - borrower) >= (input.charAt(bIndex) - '0') ){
-               digit = ((internalValue.charAt(aIndex) - '0') - borrower) - (input.charAt(bIndex) - '0');
-               borrower = 0;
-            } else {
-               digit = ((internalValue.charAt(aIndex) - '0') + 10) - (input.charAt(bIndex) - '0');
-               borrower = 1;
-            }
-            result.append(digit);
-            aIndex = aIndex - 1;
-            bIndex = bIndex - 1;
-         } else {
-            if ( aIndex >= 0 ){
-               digit = (internalValue.charAt(aIndex) - '0') - borrower;
-               borrower = 0;
-               aIndex = aIndex - 1;
-               result.append(digit);
-            }
-            if ( bIndex >= 0 ){
-
-            }
-         }
-      }
+      // String input = gint.getInternalValue();
+      // int argLength = 0;
+      // int aIndex = internalValue.length() - 1;
+      // int bIndex = input.length() - 1;
+      // int digit = 0;
+      // int borrower = 0;
+      // StringBuilder result = new StringBuilder();
+      // if ( aIndex >= bIndex ){
+      //    argLength = aIndex;
+      // } else {
+      //    argLength = bIndex;
+      // }
+      // for ( int i = argLength; i > -1; i-- ){
+      //    if ( aIndex >= 0 && bIndex >= 0 ){
+      //       if ( ((internalValue.charAt(aIndex) - '0') - borrower) >= (input.charAt(bIndex) - '0') ){
+      //          digit = ((internalValue.charAt(aIndex) - '0') - borrower) - (input.charAt(bIndex) - '0');
+      //          borrower = 0;
+      //       } else {
+      //          digit = ((internalValue.charAt(aIndex) - '0') + 10) - (input.charAt(bIndex) - '0');
+      //          borrower = 1;
+      //       }
+      //       result.append(digit);
+      //       aIndex = aIndex - 1;
+      //       bIndex = bIndex - 1;
+      //    } else {
+      //       if ( aIndex >= 0 ){
+      //          digit = (internalValue.charAt(aIndex) - '0') - borrower;
+      //          borrower = 0;
+      //          aIndex = aIndex - 1;
+      //          result.append(digit);
+      //       }
+      //       if ( bIndex >= 0 ){
+      //
+      //       }
+      //    }
+      // }
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -352,7 +365,44 @@ public class BrobInt {
    *  @return BrobInt that is the product of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt multiply( BrobInt gint ) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+      BrobInt resultBrobInt = new BrobInt( "0" );
+      BrobInt a;
+      BrobInt b;
+      if ( internalValue.length() >= gint.getInternalValue().length() ){
+         a = new BrobInt( internalValue );
+         b = new BrobInt( gint.getInternalValue() );
+      } else {
+         a = new BrobInt( gint.getInternalValue() );
+         b = new BrobInt( internalValue );
+      }
+
+      int numberOfInts = (b.getInternalValue().length()/9) + 1;
+      int[] intArray = new int[numberOfInts];
+      if ( b.getInternalValue().length() < 10 ){ //----------------------change to 10---------------------
+         intArray[0] = Integer.parseInt(b.getInternalValue());
+      } else {
+         String tempString = "";
+         for ( int j = 0; j < numberOfInts; j++ ){
+            if ( j + 9 < b.getInternalValue().length() ){
+               tempString = b.getInternalValue().substring(j*9, (j*9) + 9);
+               intArray[j] = Integer.parseInt(tempString);
+            } else {
+               tempString = b.getInternalValue().substring(j*9, (j*9) + (b.getInternalValue().length() - j) );
+               intArray[j] = Integer.parseInt(tempString);
+            }
+         }
+      }
+      for ( int i = 0; i < numberOfInts; i++ ){
+         for (int j = 0; j < intArray[i]; j++ ){
+            resultBrobInt = resultBrobInt.addInt( new BrobInt(a.getInternalValue()) );
+         }
+      }
+      if ( (sign == 1 && gint.getSign() == 0) || (sign == 0 && gint.getSign() == 1) ){
+         resultBrobInt.setSign(1);
+      } else {
+         resultBrobInt.setSign(0);
+      }
+      return resultBrobInt;
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
