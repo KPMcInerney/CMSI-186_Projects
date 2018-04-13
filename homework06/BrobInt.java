@@ -253,6 +253,7 @@ public class BrobInt {
       }
       if ( sign == 1 && gint.getSign() == 1 ){
          subSign = 1;
+         System.out.println("subSign setter 1");
          switchOrder = 1;
       }
       if ( internalValue.length() >= input.length() ){
@@ -262,22 +263,21 @@ public class BrobInt {
          a = input;
          b = internalValue;
          subSign = 1;
+         System.out.println("subSign setter 2");
       }
       if ( internalValue.length() == input.length() ){
-         for ( int j = 0; j < a.length(); j++ ){
-            if ( (internalValue.charAt(j) - '0') < (input.charAt(j) - '0') ){
-               if ( switchOrder == 1 ){
-                  switchOrder = 2;
-               }
-               subSign = 1;
-               break;
+         if ( compareTo( new BrobInt(input) ) < 0 ){
+            if ( switchOrder == 1 ){
+               BrobInt resultInt = new BrobInt(input);
+               return resultInt.subtractByte( new BrobInt(internalValue) );
             }
+            if ( internalValue.length() == 1 && internalValue.charAt(0) == '0') {
+               result.append('-' + input);
+               return new BrobInt(result.toString());
+            }
+            subSign = 1;
+            System.out.println("subSign setter 3");
          }
-      }
-      if ( switchOrder == 2 ){
-         result.append( gint.subtractByte( new BrobInt(this.toString()) ) );
-         BrobInt resultInt = new BrobInt(result.toString());
-         return ( new BrobInt(resultInt.getInternalValue()) );
       }
       int bIndex = b.length() - 1;
       for ( int i = a.length() - 1; i > -1; i-- ){
@@ -320,42 +320,6 @@ public class BrobInt {
    *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt subtractInt( BrobInt gint ) {
-      // String input = gint.getInternalValue();
-      // int argLength = 0;
-      // int aIndex = internalValue.length() - 1;
-      // int bIndex = input.length() - 1;
-      // int digit = 0;
-      // int borrower = 0;
-      // StringBuilder result = new StringBuilder();
-      // if ( aIndex >= bIndex ){
-      //    argLength = aIndex;
-      // } else {
-      //    argLength = bIndex;
-      // }
-      // for ( int i = argLength; i > -1; i-- ){
-      //    if ( aIndex >= 0 && bIndex >= 0 ){
-      //       if ( ((internalValue.charAt(aIndex) - '0') - borrower) >= (input.charAt(bIndex) - '0') ){
-      //          digit = ((internalValue.charAt(aIndex) - '0') - borrower) - (input.charAt(bIndex) - '0');
-      //          borrower = 0;
-      //       } else {
-      //          digit = ((internalValue.charAt(aIndex) - '0') + 10) - (input.charAt(bIndex) - '0');
-      //          borrower = 1;
-      //       }
-      //       result.append(digit);
-      //       aIndex = aIndex - 1;
-      //       bIndex = bIndex - 1;
-      //    } else {
-      //       if ( aIndex >= 0 ){
-      //          digit = (internalValue.charAt(aIndex) - '0') - borrower;
-      //          borrower = 0;
-      //          aIndex = aIndex - 1;
-      //          result.append(digit);
-      //       }
-      //       if ( bIndex >= 0 ){
-      //
-      //       }
-      //    }
-      // }
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -375,10 +339,9 @@ public class BrobInt {
          a = new BrobInt( gint.getInternalValue() );
          b = new BrobInt( internalValue );
       }
-
       int numberOfInts = (b.getInternalValue().length()/9) + 1;
       int[] intArray = new int[numberOfInts];
-      if ( b.getInternalValue().length() < 10 ){ //----------------------change to 10---------------------
+      if ( b.getInternalValue().length() < 10 ){
          intArray[0] = Integer.parseInt(b.getInternalValue());
       } else {
          String tempString = "";
@@ -411,7 +374,39 @@ public class BrobInt {
    *  @return BrobInt that is the dividend of this BrobInt divided by the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt divide( BrobInt gint ) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+      BrobInt resultBrobInt = new BrobInt( "0" );
+      BrobInt a = new BrobInt( "0" );
+      String aString = a.getInternalValue();
+      int divSign = 0;
+      if ( sign == 1 && gint.getSign() == 0 ){
+         divSign = 1;
+      }
+      if ( sign == 0 && gint.getSign() == 1 ){
+         divSign = 2;
+         gint.setSign(0);
+      }
+      if ( sign == 1 && gint.getSign() == 1 ){
+         divSign = 3;
+         sign = 0;
+         gint.setSign(0);
+      }
+      while ( internalValue.length() > aString.length() || (internalValue.length() == aString.length() && compareTo(a) >= 0) ){
+         a = a.addInt(gint);
+         aString = a.getInternalValue();
+         resultBrobInt = resultBrobInt.addInt(ONE);
+      }
+      if ( divSign == 1 || divSign == 2 || divSign == 3 ){
+         if ( divSign == 2 || divSign == 3 ){
+            gint.setSign(1);
+            if ( divSign == 3 ){
+               sign = 1;
+               return resultBrobInt.subtractByte(ONE);
+            }
+         }
+         StringBuilder result = new StringBuilder( '-' + resultBrobInt.subtractByte(ONE).toString() );
+         return new BrobInt(result.toString());
+      }
+      return resultBrobInt.subtractByte(ONE);
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -420,7 +415,17 @@ public class BrobInt {
    *  @return BrobInt that is the remainder of division of this BrobInt by the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt remainder( BrobInt gint ) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+      StringBuilder sb = new StringBuilder();
+      StringBuilder resultSB = new StringBuilder();
+      String resultString = subtractByte(divide(gint).multiply(gint)).toString();
+      BrobInt resultBrobInt = new BrobInt( resultString );
+      if ( resultString.charAt(0) == '-' ){
+         for ( int i = 1; i < resultString.length(); i++ ){
+            sb.append( resultString.charAt(i) );
+         }
+         return new BrobInt( resultSB.append( '-' + sb.toString().replaceFirst("^0+(?!$)", "") ).toString() );
+      }
+      return resultBrobInt;
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -472,10 +477,6 @@ public class BrobInt {
          byteVersionOutput = byteVersionOutput.concat( Byte.toString( byteVersion[i] ) );
       }
       byteVersionOutput = new String( new StringBuffer( byteVersionOutput ).reverse() );
-      /*if ( sign == 0 ) {
-         sb2.append('+' + internalValue);
-         return sb2.toString();
-      } else */
       if ( sign == 1 ) {
          sb2.append('-' + internalValue);
          return sb2.toString();
@@ -501,9 +502,14 @@ public class BrobInt {
       System.out.println( "\n   You should run your tests from the BrobIntTester...\n" );
       BrobInt g1 = new BrobInt("-123");
       BrobInt g2 = new BrobInt("-1");
+      BrobInt g3 = new BrobInt("0");
+      BrobInt g4 = new BrobInt("4");
       System.out.println( g1.toString() );
       System.out.println( g2.toString() );
       System.out.println( "g1 + g2 = " + g1.addInt(g2) );
+      System.out.println( "g3 + g4 = " + g3.addInt(g4) );
+      System.out.println( "g3 - g4 = " + g3.subtractByte(g4) );
+      System.out.println( "g4 - g3 = " + g4.subtractByte(g3) );
       System.exit( 0 );
    }
 }
