@@ -253,7 +253,6 @@ public class BrobInt {
       }
       if ( sign == 1 && gint.getSign() == 1 ){
          subSign = 1;
-         System.out.println("subSign setter 1");
          switchOrder = 1;
       }
       if ( internalValue.length() >= input.length() ){
@@ -263,7 +262,6 @@ public class BrobInt {
          a = input;
          b = internalValue;
          subSign = 1;
-         System.out.println("subSign setter 2");
       }
       if ( internalValue.length() == input.length() ){
          if ( compareTo( new BrobInt(input) ) < 0 ){
@@ -276,7 +274,6 @@ public class BrobInt {
                return new BrobInt(result.toString());
             }
             subSign = 1;
-            System.out.println("subSign setter 3");
          }
       }
       int bIndex = b.length() - 1;
