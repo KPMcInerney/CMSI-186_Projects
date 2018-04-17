@@ -38,7 +38,7 @@ public class BrobIntTester {
    private static String g16String = "-999999";
    private static String g17String = "765";
    private static String g18String = "23";
-   private static String g19String = "56789";
+   private static String g19String = "56789";//56789
    private static String g20String = "37";
 
    private static BrobInt g1 = null;
