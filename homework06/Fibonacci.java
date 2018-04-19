@@ -31,6 +31,7 @@ public class Fibonacci {
    private static BrobInt n1 = new BrobInt("0");
    private static BrobInt n2 = new BrobInt("1");
    private static BrobInt n3 = new BrobInt("1");
+   private static long startTime, endTime, duration, remainder, seconds, minutes;
 
    private static final  int NO_CMD_LINE_ARGS = -1;
    private static final  int BAD_CMD_LINE_ARG = -2;
@@ -84,21 +85,39 @@ public class Fibonacci {
          System.out.println( "\n                This may take me a while; please be patient!!\n\n" );
       }
 
+      startTime = System.nanoTime();
       if ( maxCount == 0 ){
          n3 = n1;
       } else if ( maxCount == 1 ){
          n3 = n2;
       } else {
          for ( int i = 2; i < maxCount + 1; i++ ){
-            n3 = n1.addInt(n2);
+            //System.out.println("current index is = " + i);
+            n3 = n1.addByte(n2);
             n1 = n2;
             n2 = n3;
          }
       }
+      endTime = System.nanoTime(); //sets endTime to the time after the program runs
+      duration = (endTime - startTime) / 1000000; //sets duration to total program run time in miliseconds
+      remainder = duration % 1000; //set remainder to miliseconds left after turning converting duration to seconds
+      seconds = (duration - remainder) / 1000; //set seconds to the total run seconds without remainder
+      minutes = (seconds - (seconds % 60)) / 60; //sets duration to the total run minutes without remainder
+
       System.out.println( "\n\n   Starting from zero, the " + maxCount + cardinality + " Fibonacci number is: " + n3 );
 
+      if (seconds < 1) { //checks if duration is less than a second
+         System.out.println("\fFound the " + maxCount + cardinality + " fibonacci number in ." + duration + " seconds" ); //prints time the  program took to run
+      } else if ( seconds >= 1 && minutes < 1){ //if duration is greater than a second
+         System.out.println("\fFound the " + maxCount + cardinality + " fibonacci number in " + seconds + "." + remainder + " seconds" ); //prints time the program took to run
+      } else {
+         System.out.println("\fFound the " + minutes + cardinality + " fibonacci number in " + minutes + " minutes and " + (seconds - (minutes * 60)) + "." + remainder + " seconds" ); //prints time the program took to run
+      }
+
+      //System.out.println( "\n\n   Starting from zero, the " + maxCount + cardinality + " Fibonacci number is: " + n3 );
+
       if ( n3.getInternalValue().length() > 4 ){
-         System.out.println("\n     This number is " + n3.getInternalValue().length() + " digits long" );
+         System.out.println("\n     This number is " + (n3.getInternalValue().length() - 1) + " digits long\f" );
       }
       //System.out.println( "\n\n\n  ...HA!! Like I'm going to do the ENTIRE thing for you.....  *grins*" );
 

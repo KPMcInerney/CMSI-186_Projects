@@ -21,6 +21,7 @@
  *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 import java.util.Arrays;
 import java.lang.StringBuilder;
+import java.lang.Math;
 
 public class BrobInt {
 
@@ -47,7 +48,7 @@ public class BrobInt {
    private String internalValue = "";        // internal String representation of this BrobInt
    private int   sign          = 0;         // "0" is positive, "1" is negative
    private String reversed      = "";        // the backwards version of the internal String representation
-   private byte[] byteVersion   = null;      // byte array for storing the string values; uses the reversed string
+   private int[] intVersion   = null;      // byte array for storing the string values; uses the reversed string
 
   /**
    *  Constructor takes a string and assigns it to the internal storage, checks for a sign character
@@ -67,31 +68,31 @@ public class BrobInt {
       }
       if ( value.charAt(0) == '-' ){
          sign = 1;
-         byteVersion = new byte[value.length()-1];
+         intVersion = new int[value.length()-1];
          for ( int i = 1; i < value.length(); i++ ){
             sb.append( value.charAt(i) );
             reversedSB.append( value.charAt( value.length() - i) );
-            byteVersion[i-1] = (byte)value.charAt( value.length() - i );
+            intVersion[i-1] = value.charAt(i) - '0';
          }
          internalValue = sb.toString();
          reversed = reversedSB.toString();
       } else if ( value.charAt(0) == '+' ) {
          sign = 0;
-         byteVersion = new byte[value.length()-1];
+         intVersion = new int[value.length()-1];
          for ( int i = 1; i < value.length(); i++ ){
             sb.append( value.charAt(i) );
             reversedSB.append( value.charAt( value.length() - i) );
-            byteVersion[i-1] = (byte)value.charAt( value.length() - i );
+            intVersion[i-1] = value.charAt(i) - '0';
          }
          internalValue = sb.toString();
          reversed = reversedSB.toString();
       } else {
          sign = 0;
-         byteVersion = new byte[value.length()];
+         intVersion = new int[value.length()];
          internalValue = value;
          for ( int i = 0; i < value.length(); i++ ){
             reversedSB.append( value.charAt( (value.length() - 1) - i) );
-            byteVersion[i] = (byte)value.charAt( (value.length() - 1) - i );
+            intVersion[i] = value.charAt(i) - '0';
          }
          reversed = reversedSB.toString();
       }
@@ -105,6 +106,10 @@ public class BrobInt {
       return sign;
    }
 
+   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    *  Method to set the sign of this BrobInt
+    *  @return nothing (its a void method)
+    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public void setSign( int newSign ){
       sign = newSign;
    }
@@ -115,6 +120,14 @@ public class BrobInt {
     *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public String getInternalValue(){
       return internalValue;
+   }
+
+   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    *  Method to return the integer array of this BrobInt
+    *  @return the integer array (version of this BrobInt without its sign) of this BrobInt
+    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+   public int[] getIntVersion(){
+      return intVersion;
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -163,7 +176,58 @@ public class BrobInt {
    *  @return BrobInt that is the sum of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt addByte( BrobInt gint ) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+      int[] intVersion2 = gint.getIntVersion();
+      int[] a = null;
+      int[] b = null;
+      int addSign = 0;
+      int digit = 0;
+      int rem = 0;
+      StringBuilder result = new StringBuilder();
+      if ( sign == 1 && gint.getSign() == 1 ){
+         addSign = 1;
+      }
+      if ( sign == 0 && gint.getSign() == 1 ){
+         return subtractByte( new BrobInt(gint.getInternalValue()) );
+      }
+      if ( sign == 1 && gint.getSign() == 0 ){
+         return gint.subtractByte( new BrobInt( internalValue));
+      }
+      if ( intVersion.length >= intVersion2.length ){
+         a = intVersion;
+         b = intVersion2;
+      } else {
+         a = intVersion2;
+         b = intVersion;
+      }
+      int bIndex = b.length - 1;
+      for ( int i = a.length - 1; i > -1; i-- ){
+         if ( a.length == b.length ){
+            digit = ( a[i] + b[i] + rem );
+         } else {
+            if ( bIndex >= 0 ){
+               digit = ( a[i] + b[bIndex] + rem );
+               bIndex = bIndex - 1;
+            } else {
+               digit = a[i] + rem;
+            }
+         }
+         if ( digit > 9 ) {
+            rem = 1;
+            digit = digit - 10;
+         } else {
+            rem = 0;
+         }
+         result.append(digit);
+      }
+      if ( rem == 1 ){
+         result.append(1);
+      }
+      if ( addSign == 1 ){
+         result.append('-');
+      }
+      BrobInt resultInt = new BrobInt( result.toString() );
+      BrobInt resultInt2 = new BrobInt( resultInt.reverser().toString() );
+      return (new BrobInt( resultInt2.toString().replaceFirst("^0+(?!$)", "") ) );
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -241,7 +305,6 @@ public class BrobInt {
       int subSign = 0;
       int switchOrder = 0;
       StringBuilder result = new StringBuilder();
-      //System.out.println("sign = " + sign + "  gintSign = " + gint.getSign() );
       if ( sign == 0 && gint.getSign() == 1 ){
          return addInt( new BrobInt(gint.getInternalValue()) );
       }
@@ -253,7 +316,6 @@ public class BrobInt {
       }
       if ( sign == 1 && gint.getSign() == 1 ){
          subSign = 1;
-         System.out.println("subSign setter 1");
          switchOrder = 1;
       }
       if ( internalValue.length() >= input.length() ){
@@ -263,7 +325,6 @@ public class BrobInt {
          a = input;
          b = internalValue;
          subSign = 1;
-         System.out.println("subSign setter 2");
       }
       if ( internalValue.length() == input.length() ){
          if ( compareTo( new BrobInt(input) ) < 0 ){
@@ -276,7 +337,6 @@ public class BrobInt {
                return new BrobInt(result.toString());
             }
             subSign = 1;
-            System.out.println("subSign setter 3");
          }
       }
       int bIndex = b.length() - 1;
@@ -295,7 +355,7 @@ public class BrobInt {
                   digit = ((a.charAt(i) - '0') - borrower) - (b.charAt(bIndex) - '0');
                   borrower = 0;
                } else {
-                  digit = ((a.charAt(i) - '0') + 10) - (b.charAt(bIndex) - '0');
+                  digit = ((a.charAt(i) - '0') + 10 - borrower) - (b.charAt(bIndex) - '0');
                   borrower = 1;
                }
             } else {
@@ -357,6 +417,7 @@ public class BrobInt {
       }
       for ( int i = 0; i < numberOfInts; i++ ){
          for (int j = 0; j < intArray[i]; j++ ){
+            //System.out.println("resultBrobInt = " + resultBrobInt);
             resultBrobInt = resultBrobInt.addInt( new BrobInt(a.getInternalValue()) );
          }
       }
@@ -378,6 +439,7 @@ public class BrobInt {
       BrobInt a = new BrobInt( "0" );
       String aString = a.getInternalValue();
       int divSign = 0;
+      double multiplier = 0;
       if ( sign == 1 && gint.getSign() == 0 ){
          divSign = 1;
       }
@@ -391,9 +453,9 @@ public class BrobInt {
          gint.setSign(0);
       }
       while ( internalValue.length() > aString.length() || (internalValue.length() == aString.length() && compareTo(a) >= 0) ){
-         a = a.addInt(gint);
-         aString = a.getInternalValue();
-         resultBrobInt = resultBrobInt.addInt(ONE);
+            a = a.addInt(gint);
+            aString = a.getInternalValue();
+            resultBrobInt = resultBrobInt.addInt(ONE);
       }
       if ( divSign == 1 || divSign == 2 || divSign == 3 ){
          if ( divSign == 2 || divSign == 3 ){
@@ -472,11 +534,11 @@ public class BrobInt {
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public String toString() {
       StringBuilder sb2 = new StringBuilder();
-      String byteVersionOutput = "";
-      for( int i = 0; i < byteVersion.length; i++ ) {
-         byteVersionOutput = byteVersionOutput.concat( Byte.toString( byteVersion[i] ) );
+      String intVersionOutput = "";
+      for( int i = 0; i < intVersion.length; i++ ) {
+         intVersionOutput = intVersionOutput.concat( Integer.toString( intVersion[i] ) );
       }
-      byteVersionOutput = new String( new StringBuffer( byteVersionOutput ).reverse() );
+      intVersionOutput = new String( new StringBuffer( intVersionOutput ).reverse() );
       if ( sign == 1 ) {
          sb2.append('-' + internalValue);
          return sb2.toString();
@@ -488,7 +550,7 @@ public class BrobInt {
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to display an Array representation of this BrobInt as its bytes
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public void toArray( byte[] d ) {
+   public void toArray( int[] d ) {
       System.out.println( Arrays.toString( d ) );
    }
 
@@ -500,16 +562,28 @@ public class BrobInt {
    public static void main( String[] args ) {
       System.out.println( "\n  Hello, world, from the BrobInt program!!\n" );
       System.out.println( "\n   You should run your tests from the BrobIntTester...\n" );
-      BrobInt g1 = new BrobInt("-123");
-      BrobInt g2 = new BrobInt("-1");
+      // BrobInt g1 = new BrobInt("12345");
+      // BrobInt g2 = new BrobInt("100000000");
+      BrobInt g1 = new BrobInt("144127909719710664015092431502440849849506284148982076191826176553");
+      BrobInt g2 = new BrobInt("1441279097197106640150924315024408498495062841089820783943215635");
       BrobInt g3 = new BrobInt("0");
       BrobInt g4 = new BrobInt("4");
       System.out.println( g1.toString() );
-      System.out.println( g2.toString() );
-      System.out.println( "g1 + g2 = " + g1.addInt(g2) );
-      System.out.println( "g3 + g4 = " + g3.addInt(g4) );
-      System.out.println( "g3 - g4 = " + g3.subtractByte(g4) );
-      System.out.println( "g4 - g3 = " + g4.subtractByte(g3) );
+      // System.out.println( g2.toString() );
+      System.out.println( "             " + g2.toString() );
+      System.out.println( "g1  +  g2 = " + g1.addInt(g2) );
+      // System.out.println( "expecting = 100012345" );
+      // System.out.println( "g2  +  g1 = " + g2.addInt(g1) );
+      System.out.println( "expecting = 145569188816907770655243355817465258348001346990071896975769392188" );
+      // System.out.println(" ");
+      // System.out.println( "g1  -  g2 = " + g1.subtractByte(g2) );
+      // System.out.println( "g2  -  g1 = " + g2.subtractByte(g1) );
+      // System.out.println( "expecting = 144127909719696251224120460436039340606356040063997125563415278346" );
+      // System.out.println( " " );
+      // System.out.println( "g1  /  g2 = " + g1.divide(g2) );
+      // System.out.println( "expecting = 10000000000000" );
+      // System.out.println( "g3 - g4 = " + g3.subtractByte(g4) );
+      // System.out.println( "g4 - g3 = " + g4.subtractByte(g3) );
       System.exit( 0 );
    }
 }
