@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class DynamicChangeMaker {
 
-private static int[] denominations2 = null;
+private static int[] privateDenominations = null;
 private static Tuple denomTuple = null;
 private static Tuple[][] data = null;
 
@@ -50,7 +50,6 @@ private static Tuple[][] data = null;
          return new Tuple(new int[0]);
       }
       data = new Tuple[denominations.length][target + 1];
-      int runNumber = 0;
       for ( int row = 0; row < denominations.length; row++ ){
          for ( int column = 0; column < target + 1; column++ ){
             if ( column == 0 ){
@@ -89,8 +88,6 @@ private static Tuple[][] data = null;
                   }
                }
             }
-            // System.out.println( runNumber + ":  data[" + row + "][" + column + "] = " + data[row][column] );
-            //runNumber += 1;
          }
       }
       //System.out.println("data[" + (denominations.length - 1) + "][" + target + "] = " + data[denominations.length - 1][target] );
@@ -98,13 +95,11 @@ private static Tuple[][] data = null;
    }
 
    public static void main ( String[] args ){
-      System.out.println( "Testing constructor" );
-      int[] usaDenominations  = new int[] { 1, 10, 25, 5 };
-      System.out.println( makeChangeWithDynamicProgramming( usaDenominations, 26 ) );
-      // ChangeMaker change = new ChangeMaker( args );
-      // System.out.println( "denominations = " + Arrays.toString(denominations) );
-      // System.out.println( "  denomTuple = " + denomTuple.toString() );
-      // System.out.println( "  data = " + Arrays.toString(data) );
+      privateDenominations = new int[args.length - 1];
+      for ( int i = 0; i < args.length - 1; i++ ){
+         privateDenominations[i] = Integer.parseInt(args[i]);
+      }
+      System.out.println( makeChangeWithDynamicProgramming(privateDenominations, Integer.parseInt(args[args.length - 1]) ));
    }
 
 }
