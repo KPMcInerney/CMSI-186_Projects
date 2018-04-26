@@ -13,12 +13,18 @@
 *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 import java.util.Arrays;
 
+/**
+ * This class represents a program to find optimal change for a given number.
+ */
 public class DynamicChangeMaker {
 
 private static int[] privateDenominations = null;
 private static Tuple denomTuple = null;
 private static Tuple[][] data = null;
 
+   /**
+   * Constructs DynamicChangeMaker() with super().
+   */
    public DynamicChangeMaker(){
       super();
    }
@@ -38,7 +44,7 @@ private static Tuple[][] data = null;
          }
          for ( int i = 0; i < denominations.length; i++ ){
             for ( int k = i + 1; k < denominations.length; k++ ){
-               if ( denominations[i] == denominations[k] || denominations[i] <= 0 || denominations[k] <= 0 ){
+               if ( denominations[i] == denominations[k] || denominations[i] <= 0 || denominations[k] <= 0 || denominations.length < 1){
                   throw new IllegalArgumentException();
                }
             }
@@ -94,12 +100,24 @@ private static Tuple[][] data = null;
       return data[denominations.length - 1][target];
    }
 
+   /**
+    *  main method just calls the change making program from the command line
+    * @param args from the command line. Last arg is the value you are finding
+    *             the optimal coin set for. The other args are the coins you want
+    *             to find the optimal solution with.
+    */
    public static void main ( String[] args ){
-      privateDenominations = new int[args.length - 1];
-      for ( int i = 0; i < args.length - 1; i++ ){
-         privateDenominations[i] = Integer.parseInt(args[i]);
+      if ( args.length >= 2 ){
+         privateDenominations = new int[args.length - 1];
+         for ( int i = 0; i < args.length - 1; i++ ){
+            privateDenominations[i] = Integer.parseInt(args[i]);
+         }
+         System.out.println( makeChangeWithDynamicProgramming(privateDenominations, Integer.parseInt(args[args.length - 1]) ));
+      } else {
+         System.out.println( "\n   Sorry, the arguments you entered are invalid." );
+         System.out.println( "   For the first argument enter an int array of arguments with a value >= 0 \n" );
+         System.out.println( "   For the second argument enter the target value [non-negative int]");
       }
-      System.out.println( makeChangeWithDynamicProgramming(privateDenominations, Integer.parseInt(args[args.length - 1]) ));
    }
 
 }
